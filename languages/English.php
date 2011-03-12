@@ -3,17 +3,17 @@
 + ----------------------------------------------------------------------------+
 |     e107 website system
 |
-|     ©Steve Dunstan 2001-2002
-|     http://e107.org
-|     jalist@e107.org
+|     Copyright (C) 2001-2002 Steve Dunstan (jalist@e107.org)
+|     Copyright (C) 2008-2010 e107 Inc (e107.org)
+|
 |
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $Source: /cvs_backup/e107_0.8/e107_themes/jayya/languages/English.php,v $
-|     $Revision: 1.3 $
-|     $Date: 2009-04-27 10:52:42 $
-|     $Author: secretr $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_themes/jayya/languages/English.php $
+|     $Revision: 11678 $
+|     $Id: English.php 11678 2010-08-22 00:43:45Z e107coders $
+|     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
 
@@ -23,11 +23,5 @@ define("LAN_THEME_3", "Read the rest...");
 define("LAN_THEME_4", "Trackbacks: ");
 define("LAN_THEME_5", "Posted by ");
 define("LAN_THEME_6", "on ");
-
-define("EMESSLAN_TITLE_INFO", "System Information");
-define("EMESSLAN_TITLE_ERROR", "Error");
-define("EMESSLAN_TITLE_SUCCESS", "Success");
-define("EMESSLAN_TITLE_WARNING", "Warning");
-define("EMESSLAN_TITLE_DEBUG", "System Debug");
 
 ?>

@@ -3,24 +3,23 @@
 + ----------------------------------------------------------------------------+
 |     e107 website system
 |
-|     ©Steve Dunstan 2001-2002
-|     http://e107.org
-|     jalist@e107.org
+|     Copyright (C) 2001-2002 Steve Dunstan (jalist@e107.org)
+|     Copyright (C) 2008-2010 e107 Inc (e107.org)
+|
 |
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $Source: /cvs_backup/e107_0.8/e107_themes/jayya/forum/forum_icons_template.php,v $
-|     $Revision: 1.4 $
-|     $Date: 2007-06-06 19:31:43 $
-|     $Author: e107steved $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_themes/jayya/forum/forum_icons_template.php $
+|     $Revision: 11678 $
+|     $Id: forum_icons_template.php 11678 2010-08-22 00:43:45Z e107coders $
+|     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
 	
 if (!defined('e107_INIT')) { exit; }
 
-@include_once(e_PLUGIN.'forum/languages/'.e_LANGUAGE.'/lan_forum_viewforum.php');
-@include_once(e_PLUGIN.'forum/languages/English/lan_forum_viewforum.php');
+include_lan(e_PLUGIN.'forum/languages/'.e_LANGUAGE.'/lan_forum_viewforum.php');
 
 define("IMAGE_e", "<img src='".img_path('e.png')."' alt='' title='' style='border:0' />");
 define("IMAGE_new", "<img src='".img_path('new.png')."' alt='".LAN_199."' title='".LAN_199."' style='border:0' />");

@@ -3,16 +3,16 @@
 + ----------------------------------------------------------------------------+
 |     e107 website system
 |
-|     ©Steve Dunstan 2001-2002
-|     http://e107.org
-|     jalist@e107.org
+|     Copyright (C) 2001-2002 Steve Dunstan (jalist@e107.org)
+|     Copyright (C) 2008-2010 e107 Inc (e107.org)
+|
 |
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $Source: /cvs_backup/e107_0.8/e107_themes/jayya/theme.php,v $
-|     $Revision: 1.7 $
-|     $Date: 2009-07-06 05:59:42 $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_themes/jayya/theme.php $
+|     $Revision: 11678 $
+|     $Id: theme.php 11678 2010-08-22 00:43:45Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -22,24 +22,25 @@ if (!defined('e107_INIT')) { exit; }
 
 
 // Get language definition files for this theme
-include_lan(e_THEME."jayya/languages/".e_LANGUAGE.".php");
+include_lan(e_THEME."deltik/languages/".e_LANGUAGE.".php");
 
 
 // [theme]
 
-$themename = "Jayya";
-$themeversion = "1.0";
-$themeauthor = "e107devs";
-$themedate = "";
-$themeinfo = "";
+$themename = "Deltik Jayya";
+$themeversion = "1.1";
+$themeauthor = "Deltik";
+$themedate = "12 March 2011";
+$themeinfo = "Deltik variant of the e107 'Jayya' theme";
 $xhtmlcompliant = TRUE;
 $csscompliant = TRUE;
 define("THEME_DISCLAIMER", "");
 define("IMODE", "lite");
-define("STANDARDS_MODE", TRUE);
 
 // [dont render core style sheet link]
-	$no_core_css = TRUE;
+
+$no_core_css = TRUE;
+
 
 // [layout]
 
@@ -51,15 +52,16 @@ $HEADER = "<table class='page_container'>
 
 <table class='top_section'>
 <tr>
-<td class='top_section_left' style='width: 190px; padding-left: 5px; padding-right: 5px'>
+<td class='top_section_left' style='width: 190px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 2px;'>
 {LOGO}
 </td>
 <td class='top_section_mid'>
 {BANNER}
 </td>
 
-<td class='top_section_right' style='padding: 0px; white-space: nowrap; width: 170px'>
-{CUSTOM=search+default}
+<td class='top_section_right' style='padding-left: 5px; padding-right: 5px; white-space: nowrap; width: 170px'>
+{CUSTOM=clock}<br />
+{SEARCH}
 </td>
 </tr>
 </table>
