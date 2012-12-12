@@ -3,23 +3,24 @@
 + ----------------------------------------------------------------------------+
 |     e107 website system
 |
-|     ©Steve Dunstan 2001-2002
+|     Copyright (C) 2008-2009 e107 Inc (e107.org)
 |     http://e107.org
-|     jalist@e107.org
+|
 |
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
 |     $Source: /cvs_backup/e107_0.8/e107_themes/jayya/admin_theme.php,v $
-|     $Revision: 1.1 $
-|     $Date: 2009-04-27 10:52:42 $
-|     $Author: secretr $
+|     $Revision$
+|     $Date$
+|     $Author$
 +----------------------------------------------------------------------------+
 */
 
 // Protect the file from direct access
 if (!defined('e107_INIT')) { exit; }
 
+define('STANDARDS_MODE', TRUE);
 
 // Get language definition files for this theme
 include_lan(e_THEME."jayya/languages/".e_LANGUAGE.".php");
@@ -40,19 +41,12 @@ define("IMODE", "lite");
 // [dont render core style sheet link]
 	$no_core_css = TRUE;
 
-/**
- * JSLIB instructions (could be chaged in the near future)
- */
-$THEME_CORE_JSLIB = array(
-	'jslib/core/decorate.js' => 'all',
-	'jslib/core/tabs.js' => 'admin'
-);
+//Prototype Scripts
+e107::js('core', 'core/decorate.js', 'prototype', 2);
+e107::js('core', 'core/tabs.js', 'prototype', 2);
 
-function theme_head() 
-{
-    return "
-    <script type='text/javascript'>
-       /**
+e107::js('inline',"
+	 /**
     	* Decorate all tables having e-list class
     	* TODO: add 'adminlist' class to all list core tables, allow theme decorate.
     	*/
@@ -74,10 +68,48 @@ function theme_head()
             	element.select('legend').invoke('hide');
             });
 
+            $$('a.e-dialog-close').invoke('observe', 'click', function(ev) {
+					parent.e107Widgets.DialogManagerDefault.getWindow('e-dialog').close();
+			});
+			
+			// Menu Manager Layout drop-down options
+			
+			 $$('#menuManagerSelect').invoke('observe', 'change', function(ev) {
+				var link = ev.element().value;
+				$('menu_iframe').writeAttribute('data', link);	
+			});
+			
+           //  
+            
+          // alert('fix me : jayya/admin_theme.php (inline js)');  
         }, document, true);
+"
+,'prototype');
 
-    </script>";
-}
+//TODO - Move to external files. 
+
+e107::css('inline',"/******** Tabs JS */
+
+.admintabs ul.e-tabs { border-bottom: 1px solid #DDDDDD; height: 31px; }
+.admintabs ul.e-tabs li { border: 1px solid #DDDDDD; display: block; float: left; line-height: 30px; padding: 0px 7px; margin-right: 3px; background-color: #F9F9F9 }
+.admintabs fieldset { clear: both ; border: 1px solid #DDDDDD; padding: 10px; border-top: 0px none; }
+.admintabs fieldset legend { border: 1px solid #DDDDDD; }
+.admintabs ul.e-tabs li.active { border-bottom: 1px solid #FFFFFF; background-color: #FFFFFF}
+ a.e-tabs {
+   text-decoration: none;
+ }
+",'prototype');
+
+
+// jQUERY scripts
+
+
+
+//e107::css('core', 	'core/admin.css', 'jquery');
+//e107::js('core', 	'core/admin.jquery.js', 'jquery', 4);
+
+
+
 // [layout]
 
 $layout = "_default";
@@ -216,8 +248,21 @@ define('TRACKBACKBEFORESTRING', '&nbsp;|&nbsp;');
 
 //	[tablestyle]
 
-function tablestyle($caption, $text, $mode){
+function tablestyle($caption, $text, $mode)
+{
 	global $style;
+	
+	
+	if($mode == 'admin-login')
+	{
+		
+		echo $text;	
+		return;
+	}
+	
+	
+	
+	
 	$caption = $caption ? $caption : '&nbsp;';
 	if ((isset($mode['style']) && $mode['style'] == 'button_menu') || (isset($mode) && ($mode == 'menus_config'))) {
 		$menu = ' buttons';

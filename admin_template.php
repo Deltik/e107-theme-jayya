@@ -1,21 +1,18 @@
 <?php
 /*
-+ ----------------------------------------------------------------------------+
-|     e107 website system
-|
-|     ©Steve Dunstan 2001-2002
-|     http://e107.org
-|     jalist@e107.org
-|
-|     Released under the terms and conditions of the
-|     GNU General Public License (http://gnu.org).
-|
-|     $Source: /cvs_backup/e107_0.8/e107_themes/jayya/admin_template.php,v $
-|     $Revision: 1.6 $
-|     $Date: 2009-04-27 10:52:42 $
-|     $Author: secretr $
-+----------------------------------------------------------------------------+
-*/
+ * e107 website system
+ *
+ * Copyright (C) 2008-2009 e107 Inc (e107.org)
+ * Released under the terms and conditions of the
+ * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
+ *
+ *
+ *
+ * $Source: /cvs_backup/e107_0.8/e107_themes/jayya/admin_template.php,v $
+ * $Revision$
+ * $Date$
+ * $Author$
+ */
 
 if (!defined('e107_INIT')) { exit; }
 
@@ -49,7 +46,6 @@ $ADMIN_HEADER = "<table class='page_container'>
 <div style='margin-bottom: 3px;'>
 {ADMIN_LOGGED}
 {ADMIN_SEL_LAN}
-{ADMIN_USERLAN}
 </div>
 {SITELINKS=flat}
 </td>
@@ -62,13 +58,17 @@ $ADMIN_HEADER = "<table class='page_container'>
 </tr>
 </table>";
 
-if (ADMIN) {
+if (ADMIN)
+{
 	$ADMIN_HEADER .= "{ADMIN_ALT_NAV}";
-} else {
+}
+else // Admin LOGIN area. 
+{
+	// file not found errors when logged out. 
 	if (file_exists(THEME.'admin_nav.js')) {
-		$ADMIN_HEADER .= "<script type='text/javascript' src='".THEME."admin_nav.js'></script>";
+		//$ADMIN_HEADER .= "<script type='text/javascript' src='".THEME."admin_nav.js'></script>";
 	} else {
-		$ADMIN_HEADER .= "<script type='text/javascript' src='".e_FILE."admin_nav.js'></script>";
+		// $ADMIN_HEADER .= "<script type='text/javascript' src='".e_FILE."admin_nav.js'></script>";
 	}
 
 	$ADMIN_HEADER .= "<div style='width: 100%'><table style='width:100%; border-collapse: collapse; border-spacing: 0px;'>
@@ -154,7 +154,7 @@ $ADMIN_FOOTER .= "</tr>
 
 
 /* NEW ADMIN MENU TEMPLATE
- * see function e_admin_menu() in e107_admin/header.php
+ * see function e107::getNav()->admin() in e107_admin/header.php
  */
 $E_ADMIN_MENU['start'] = '
 <ul class="plugin-navigation">

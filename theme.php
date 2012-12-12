@@ -1,21 +1,18 @@
 <?php
 /*
-+ ----------------------------------------------------------------------------+
-|     e107 website system
-|
-|     ©Steve Dunstan 2001-2002
-|     http://e107.org
-|     jalist@e107.org
-|
-|     Released under the terms and conditions of the
-|     GNU General Public License (http://gnu.org).
-|
-|     $Source: /cvs_backup/e107_0.8/e107_themes/jayya/theme.php,v $
-|     $Revision: 1.7 $
-|     $Date: 2009-07-06 05:59:42 $
-|     $Author: e107coders $
-+----------------------------------------------------------------------------+
-*/
+ * e107 website system
+ *
+ * Copyright (C) 2008-2009 e107 Inc (e107.org)
+ * Released under the terms and conditions of the
+ * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
+ *
+ *
+ *
+ * $Source: /cvs_backup/e107_0.8/e107_themes/jayya/theme.php,v $
+ * $Revision$
+ * $Date$
+ * $Author$
+ */
 
 // Protect the file from direct access
 if (!defined('e107_INIT')) { exit; }
@@ -27,15 +24,7 @@ include_lan(e_THEME."jayya/languages/".e_LANGUAGE.".php");
 
 // [theme]
 
-$themename = "Jayya";
-$themeversion = "1.0";
-$themeauthor = "e107devs";
-$themedate = "";
-$themeinfo = "";
-$xhtmlcompliant = TRUE;
-$csscompliant = TRUE;
 define("THEME_DISCLAIMER", "");
-define("IMODE", "lite");
 define("STANDARDS_MODE", TRUE);
 
 // [dont render core style sheet link]
@@ -45,7 +34,7 @@ define("STANDARDS_MODE", TRUE);
 
 $layout = "_default";
 
-$HEADER = "<table class='page_container'>
+$HEADER['3_column'] = "<table class='page_container'>
 <tr>
 <td>
 
@@ -84,12 +73,14 @@ $HEADER = "<table class='page_container'>
 </td>
 <td class='default_menu'>
 {SETSTYLE=default}
+{FEATUREBOX|default}
+{FEATUREBOX|dynamic}
 {WMESSAGE}
 ";
 
-$FOOTER = "<br />
+$FOOTER['3_column'] = "<br />
+{FEATUREBOX|tabs=notablestyle}
 </td>
-
 <td class='right_menu'>
 <table class='menus_container'><tr><td>
 {SETSTYLE=rightmenu}
@@ -108,7 +99,61 @@ $FOOTER = "<br />
 </table>
 ";
 
+$HEADER['2_column'] = "<table class='page_container'>
+<tr>
+<td>
 
+<table class='top_section'>
+<tr>
+<td class='top_section_left' style='width: 190px; padding-left: 5px; padding-right: 5px'>
+{LOGO}
+</td>
+<td class='top_section_mid'>
+{BANNER}
+</td>
+
+<td class='top_section_right' style='padding: 0px; white-space: nowrap; width: 170px'>
+{CUSTOM=search+default}
+</td>
+</tr>
+</table>
+
+<div>
+{SITELINKS_ALT=".THEME_ABS."images/arrow.png+noclick}
+</div>
+
+<table class='main_section'>
+<colgroup>
+<col style='width: 170px' />
+<col style='width: auto' />
+</colgroup>
+
+<tr>
+<td class='left_menu'>
+<table class='menus_container'><tr><td>
+{SETSTYLE=leftmenu}
+{MENU=1}
+{MENU=2}
+</td></tr></table>
+</td>
+<td class='default_menu'>
+{SETSTYLE=default}
+{WMESSAGE}
+";
+
+$FOOTER['2_column'] = "<br />
+</td>
+</tr>
+</table>
+<div style='text-align:center'>
+<br />
+{SITEDISCLAIMER}
+<br /><br />
+</div>
+</td>
+</tr>
+</table>
+";
 // [linkstyle]
 
 define('PRELINK', '');
@@ -123,6 +168,10 @@ define('LINKALIGN', 'left');
 
 $sc_style['NEWSIMAGE']['pre'] = "<td style='padding-right: 7px; vertical-align: top'>";
 $sc_style['NEWSIMAGE']['post'] = "</td>";
+
+$sc_style['NEWSCOMMENTS']['pre'] = "<img src='".THEME_ABS."images/comments_16.png' style='width: 16px; height: 16px' alt='' />";
+$sc_style['NEWSCOMMENTS']['post'] = "";
+
 
 $NEWSSTYLE = "<div class='cap_border'><div class='main_caption'><div class='bevel'>
 {STICKY_ICON}{NEWSTITLE}
@@ -151,7 +200,7 @@ $NEWSSTYLE = "<div class='cap_border'><div class='main_caption'><div class='beve
  ".LAN_THEME_6."
 {NEWSDATE}
 </td><td style='text-align: center; padding: 3px; padding-bottom: 0px; white-space: nowrap'>
-<img src='".THEME_ABS."images/comments_16.png' style='width: 16px; height: 16px' alt='' />
+<!-- -->
 </td>
 <td style='padding: 0px; padding-left: 2px; white-space: nowrap'>
 {NEWSCOMMENTS}
@@ -232,6 +281,7 @@ $sc_style['LOCATION']['post'] = "<br />";
 $sc_style['RATING']['post'] = "<br /><br />";
 
 $sc_style['COMMENT']['post'] = "<br />";
+
 
 $COMMENTSTYLE = "<div class='spacer' style='text-align:center'><table class='fborder' style='width: 95%'>
 <tr>

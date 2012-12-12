@@ -121,6 +121,7 @@ ul {
 
 .helpbox {
 	border: 0px;
+	font: 12px arial, helvetica, sans-serif;
 }
 
 /* Theme Specific Classes */
@@ -392,12 +393,17 @@ ul,ol       { list-style:none; }
 
 /* Core Icons */
 img.icon		{ border: 0px }
-img.icon.list	{ margin: 0px 5px 5px 0px }
-img.icon.action { vertical-align: middle }
-img.S16		{ width: 16px; height: 16px }
-img.S32		{ width: 32px; height: 32px }
-img.S64		{ width: 64px; height: 64px }
+img.icon.list, 
+input.action	{ margin: 0px 3px }
+img.icon.action, 
+input.action 	{ vertical-align: middle }
+img.S16			{ width: 16px; height: 16px }
+img.S32			{ width: 32px; height: 32px }
+img.S64			{ width: 64px; height: 64px }
 img.S128		{ width: 128px; height: 128px }
+img.edit, 
+img.delete, 
+input.delete 	{ }
 /*******************************************************************************************************************/
 
 /******** Decorate JS */
@@ -417,25 +423,51 @@ img.S128		{ width: 128px; height: 128px }
 .adminlist tr.odd {}
 .adminlist tr.even { background-color:#f6f6f6; }
 
+.adminlist .col-selection-cont { position: relative; float:right; }
+.col-selection-cont .col-selection { text-align:left; background-color: #FCFDFF; border: 1px outset black; width:200px; margin-right:0px; overflow:visible; position: absolute; z-index:101; right:0px;}
+.col-selection .col-selection-body { padding: 5px; clear: both; }
+
 /* Form elements */ 
 input.input-text,
 textarea,
-select, .tbox, .helpbox {
+select, .tbox {
     border-width:1px;
     border-style:solid;
     border-color:#aaa #c8c8c8 #c8c8c8 #aaa;
     background:#fff;
     font:12px arial, helvetica, sans-serif;
 }
+
+input[disabled='disabled'],
+textarea[disabled='disabled'],
+select[disabled='disabled'],
+.tbox.disabled,
+.disabled {
+  background-color:#EFEFEF;
+  color:#000;
+  cursor:default;
+}
+
 option { padding-right: 10px;}
 input.input-text, textarea, .tbox, .helpbox { padding:2px; }
-.tbox.large { width: 95% !important; }
+
+input.e-spinner {
+	border:0px;
+}
+
 select.tbox  { min-height:17px; padding: 0px; /* setting the height of empty selects */ }
 .select.order { width: 40px !important; }
 .select.time-offset { width: 60px !important; }
 input.radio { margin-right: 3px; }
 label { cursor: pointer; }
 .checkbox { margin-right: 5px; }
+
+/* BBcode textareas */
+div.bbarea.large, .tbox.large, .helpbox.large { width: 95% !important; }
+div.bbarea.medium, .tbox.medium, .helpbox.medium { width: 60% !important; }
+div.bbarea.small, .tbox.small, .helpbox.small { width: 250px !important; }
+.remainingCharacters { margin: 0px; padding: 0px; }
+
 
 .check-block { /* see administration newspost.php */
 	padding: 2px 0px;
@@ -454,6 +486,7 @@ label { cursor: pointer; }
 .label-note { font-style: italic; }
 .form-note { font-style: italic; }
 .field-spacer.strong { font-weight: bold }
+.required-label { font-weight: bold }
 
 /* Related JS functionality - .autocheck together with .auto-toggle-area (see admin/image.php) */
 .auto-toggle-area { width: 280px; cursor: pointer; }
@@ -461,7 +494,6 @@ label { cursor: pointer; }
 /* form used for settings */
 .col-label { width: 250px; }
 .col-control {}
-.col-selection { padding:5px; text-align:left; background-color: #FCFDFF; border: 1px outset black; width:200px; margin-right:0px;overflow:visible; position:absolute; z-index:101; right:0px;}
 
 
 
@@ -502,6 +534,8 @@ label { cursor: pointer; }
 .adminedit td.control {}
 
 
+
+
 /* Admin Info Table */ 
 .admininfo  { width:100%;  border:1px solid #ddd;}
 .admininfo td { padding: 1px 5px; text-align: left}
@@ -520,15 +554,6 @@ label { cursor: pointer; }
 /******** Prepare for Image Preview JS */
 .image-preview {}
 
-/******** Tabs JS */
-.admintabs ul.e-tabs { border-bottom: 1px solid #DDDDDD; height: 31px; }
-.admintabs ul.e-tabs li { border: 1px solid #DDDDDD; display: block; float: left; line-height: 30px; padding: 0px 7px; margin-right: 3px; background-color: #F9F9F9 }
-.admintabs fieldset { clear: both ; border: 1px solid #DDDDDD; padding: 10px; border-top: 0px none; }
-.admintabs fieldset legend { border: 1px solid #DDDDDD; }
-.admintabs ul.e-tabs li.active { border-bottom: 1px solid #FFFFFF; background-color: #FFFFFF}
- a.e-tabs {
-   text-decoration: none;
- }
 
 /******** SyS Messages / Message text formatting */
 /* message boxes */
@@ -566,7 +591,7 @@ label { cursor: pointer; }
 .success { color: green; }
 .error { color: #FF0000 }
 .info {}
-
+.required { color:red }
 /******** Tooltip info */
 .e-info {}
 
@@ -645,6 +670,7 @@ button.cancel:active span		{}
 .buttons-bar { padding: 10px 0px; }
 .buttons-bar button { margin-right: 10px; }
 .buttons-bar button.f-right { margin-right: 0px; }
+.buttons-bar .options { margin-bottom: 10px; }
 
 /* Actions (adminlist) - input type image */
 input.action { vertical-align: middle; } /* default */
@@ -658,6 +684,32 @@ input.action.edit {}
 
 /********** Element Loading Status default style */
 .element-loading-mask { background-repeat: no-repeat; background-position: 50% 50%; background-color: #f5f5f5; }
+
+/********** Auto complete default style */
+div.e-autocomplete {
+  position:absolute;
+  width:250px;
+  background-color:white;
+  border:1px solid #c0c0c0;
+  margin:0;
+  padding:0;
+}
+div.e-autocomplete ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  font-weight: bold; font-size: 11px
+}
+div.e-autocomplete ul li.selected { background-color: #f5f5f5;}
+div.e-autocomplete ul li {
+  list-style-type:none;
+  display:block;
+  margin:0;
+  padding: 5px;
+  cursor:pointer;
+
+}
+div.e-autocomplete ul li span.informal { font-weight: normal; font-size: 9px}
 
 /********** Docs */
 #docs-list 			{ padding: 10px; margin-bottom: 15px; border: 1px solid #f5f5f5; }
@@ -726,11 +778,13 @@ ul.plugin-navigation ul.plugin-navigation-sub a.link-active {font-weight: bold;}
 /******** Block Elements */
 .block { border: 1px solid #DDDDDD; margin-bottom: 10px;}
 .block-text { padding: 10px 10px 10px; }
-.block h2.caption, .block h4.caption { padding: 5px 10px 5px; border-bottom: 1px solid #DDDDDD; }
+.block h2.caption, .block h4.caption { padding: 5px 10px 5px; border-bottom: 1px solid #DDDDDD;  }
 .page-info { border: 1px solid #DDDDDD; margin-bottom: 10px; }
 .page-info p { padding: 10px; }
 
-/***** Admin Main Panel Buttons **/
+/***** Admin Info Panel Buttons **/
+
+h2.caption {  font-size: 200%; font-weight:bold; }
 
 .core-mainpanel-block { text-align:center; width:100px; float:left; height:48px; display:block;margin:15px; }
 .core-mainpanel-link-text { font-weight:bold; text-decoration: none; padding:3px }
@@ -757,3 +811,24 @@ ul.plugin-navigation ul.plugin-navigation-sub a.link-active {font-weight: bold;}
 #core-frontpage-edit select.tbox { width: 50%;} 
 #core-frontpage-edit .buttons-bar select.tbox { width: 140px; }
 #core-frontpage-edit .buttons-bar 	{ clear: both; }
+
+/** Custom Pages Front-end **/
+.cpage-nav { padding: 5px; margin: 0px 5px 10px 10px; }
+a.cpage-np { font-size: 14px; }
+a.cpage-np.current { text-decoration: none; }
+
+/******** bbcodes && typgoraphy */
+p {  }
+p.bbcode { margin: 10px 0px; text-indent: 15px; } /* override if requried */
+p.bbcode:first-letter  { font-weight: bold; text-transform: uppercase }
+
+h1, h2, h3, h4, h5, h6 { margin: 10px 0px; text-indent: 15px; }
+h1 {  margin: 15px 0px; font-size: 16px; }
+h2 {  font-size: 14px; }
+h3 {  font-size: 12px; }
+
+h1.bbcode, h2.bbcode, h3.bbcode, h4.bbcode, h5.bbcode, h6.bbcode {  }/* override if requried */
+
+div.bbcode { margin: 15px 0px; clear: both; } /* layout control via bbcodes */
+
+
