@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Theme name="Deltik Jayya" version="2.1" date="2018-04-02" compatibility="2.0">
+	<author name ="Deltik" url="https://www.deltik.org" />
+	<summary lan="">Deltik variant of the e107 'Jayya' theme</summary>
+	<description lan="">Deltik variant of the e107 'Jayya' theme</description>
+	<keywords>
+		<word>old</word>
+		<word>classic</word>
+	</keywords>
+	<category>generic</category>
+	<screenshots>
+		<image>preview.jpg</image>
+	</screenshots>
+	<compliance xhtml="1.1" css="2.1" />
+ 	<layouts>
+		<layout name='3_column' title='3 Columns' default='true' />
+        <layout name='2_column' title='2 Columns' />
+	</layouts>
+</e107Theme>

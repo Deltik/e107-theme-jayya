@@ -1,62 +1,133 @@
 <?php
 /*
- * e107 website system
- *
- * Copyright (C) 2008-2009 e107 Inc (e107.org)
- * Released under the terms and conditions of the
- * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
- *
- *
- *
- * $Source: /cvs_backup/e107_0.8/e107_themes/jayya/theme.php,v $
- * $Revision$
- * $Date$
- * $Author$
- */
++ ----------------------------------------------------------------------------+
+|     e107 website system
+|
+|     Copyright (C) 2008-2009 e107 Inc (e107.org)
+|     http://e107.org
+|
+|
+|     Released under the terms and conditions of the
+|     GNU General Public License (http://gnu.org).
+|
+|     $Source: /cvs_backup/e107_0.8/e107_themes/jayya/admin_theme.php,v $
+|     $Revision$
+|     $Date$
+|     $Author$
++----------------------------------------------------------------------------+
+*/
 
 // Protect the file from direct access
 if (!defined('e107_INIT')) { exit; }
 
+define('STANDARDS_MODE', TRUE);
 
 // Get language definition files for this theme
-include_lan(__DIR__."/languages/".e_LANGUAGE.".php");
+include_lan(e_THEME."jayya/languages/".e_LANGUAGE.".php");
 
 
 // [theme]
 
+$themename = "Jayya";
+$themeversion = "1.0";
+$themeauthor = "";
+$themedate = "";
+$themeinfo = "";
+$xhtmlcompliant = TRUE;
+$csscompliant = TRUE;
 define("THEME_DISCLAIMER", "");
-define("STANDARDS_MODE", TRUE);
+define("IMODE", "lite");
 
 // [dont render core style sheet link]
 	$no_core_css = TRUE;
 
-// [layout]
+//Prototype Scripts
+e107::js('core', 'core/decorate.js', 'prototype', 2);
+e107::js('core', 'core/tabs.js', 'prototype', 2);
+
+e107::js('inline',"
+	 /**
+    	* Decorate all tables having e-list class
+    	* TODO: add 'adminlist' class to all list core tables, allow theme decorate.
+    	*/
+        e107.runOnLoad( function(event) {
+        	var element = event.memo['element'] ? $(event.memo.element) : $$('body')[0];
+
+            element.select('table.adminlist:not(.no-decorate)').each(function(element) {
+            	e107Utils.Decorate.table(element, {tr_td: 'first last'});
+            });
+			element.select('div.admintabs').each(function(element) {
+				//show tab navaigation
+				element.select('ul.e-tabs').each( function(el){
+					el.show();
+					el.removeClassName('e-hideme');//prevent hideme re-register (e.g. ajax load)
+				});
+				//init tabs
+            	new e107Widgets.Tabs(element);
+            	//hide legends if any
+            	element.select('legend').invoke('hide');
+            });
+
+            $$('a.e-dialog-close').invoke('observe', 'click', function(ev) {
+					parent.e107Widgets.DialogManagerDefault.getWindow('e-dialog').close();
+			});
+			
+			// Menu Manager Layout drop-down options
+			
+			 $$('#menuManagerSelect').invoke('observe', 'change', function(ev) {
+				var link = ev.element().value;
+				$('menu_iframe').writeAttribute('data', link);	
+			});
+			
+           //  
+            
+          // alert('fix me : jayya/admin_theme.php (inline js)');  
+        }, document, true);
+"
+,'prototype');
+
+//TODO - Move to external files. 
+
+e107::css('inline',"/******** Tabs JS */
+
+.admintabs ul.e-tabs { border-bottom: 1px solid #DDDDDD; height: 31px; }
+.admintabs ul.e-tabs li { border: 1px solid #DDDDDD; display: block; float: left; line-height: 30px; padding: 0px 7px; margin-right: 3px; background-color: #F9F9F9 }
+.admintabs fieldset { clear: both ; border: 1px solid #DDDDDD; padding: 10px; border-top: 0px none; }
+.admintabs fieldset legend { border: 1px solid #DDDDDD; }
+.admintabs ul.e-tabs li.active { border-bottom: 1px solid #FFFFFF; background-color: #FFFFFF}
+ a.e-tabs {
+   text-decoration: none;
+ }
+",'prototype');
 
 
-// [dont render core style sheet link]
+// jQUERY scripts
 
-$no_core_css = TRUE;
+
+
+//e107::css('core', 	'core/admin.css', 'jquery');
+//e107::js('core', 	'core/admin.jquery.js', 'jquery', 4);
+
 
 
 // [layout]
 
 $layout = "_default";
 
-$HEADER['3_column'] = "<table class='page_container'>
+$HEADER = "<table class='page_container'>
 <tr>
 <td>
 
 <table class='top_section'>
 <tr>
-<td class='top_section_left' style='width: 190px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 2px;'>
+<td class='top_section_left' style='width: 190px; padding-left: 5px; padding-right: 5px'>
 {LOGO}
 </td>
 <td class='top_section_mid'>
 {BANNER}
 </td>
 
-<td class='top_section_right' style='padding-left: 5px; padding-right: 5px; white-space: nowrap; width: 170px'>
-{CUSTOM=clock}<br />
+<td class='top_section_right' style='padding: 0px; white-space: nowrap; width: 170px'>
 {CUSTOM=search+default}
 </td>
 </tr>
@@ -82,14 +153,12 @@ $HEADER['3_column'] = "<table class='page_container'>
 </td>
 <td class='default_menu'>
 {SETSTYLE=default}
-{FEATUREBOX|default}
-{FEATUREBOX|dynamic}
 {WMESSAGE}
 ";
 
-$FOOTER['3_column'] = "<br />
-{FEATUREBOX|tabs=notablestyle}
+$FOOTER = "<br />
 </td>
+
 <td class='right_menu'>
 <table class='menus_container'><tr><td>
 {SETSTYLE=rightmenu}
@@ -108,62 +177,7 @@ $FOOTER['3_column'] = "<br />
 </table>
 ";
 
-$HEADER['2_column'] = "<table class='page_container'>
-<tr>
-<td>
 
-<table class='top_section'>
-<tr>
-<td class='top_section_left' style='width: 190px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 2px;'>
-{LOGO}
-</td>
-<td class='top_section_mid'>
-{BANNER}
-</td>
-
-<td class='top_section_right' style='padding-left: 5px; padding-right: 5px; white-space: nowrap; width: 170px'>
-{CUSTOM=clock}
-{CUSTOM=search+default}
-</td>
-</tr>
-</table>
-
-<div>
-{SITELINKS_ALT=".THEME_ABS."images/arrow.png+noclick}
-</div>
-
-<table class='main_section'>
-<colgroup>
-<col style='width: 170px' />
-<col style='width: auto' />
-</colgroup>
-
-<tr>
-<td class='left_menu'>
-<table class='menus_container'><tr><td>
-{SETSTYLE=leftmenu}
-{MENU=1}
-{MENU=2}
-</td></tr></table>
-</td>
-<td class='default_menu'>
-{SETSTYLE=default}
-{WMESSAGE}
-";
-
-$FOOTER['2_column'] = "<br />
-</td>
-</tr>
-</table>
-<div style='text-align:center'>
-<br />
-{SITEDISCLAIMER}
-<br /><br />
-</div>
-</td>
-</tr>
-</table>
-";
 // [linkstyle]
 
 define('PRELINK', '');
@@ -178,10 +192,6 @@ define('LINKALIGN', 'left');
 
 $sc_style['NEWSIMAGE']['pre'] = "<td style='padding-right: 7px; vertical-align: top'>";
 $sc_style['NEWSIMAGE']['post'] = "</td>";
-
-$sc_style['NEWSCOMMENTS']['pre'] = "<img src='".THEME_ABS."images/comments_16.png' style='width: 16px; height: 16px' alt='' />";
-$sc_style['NEWSCOMMENTS']['post'] = "";
-
 
 $NEWSSTYLE = "<div class='cap_border'><div class='main_caption'><div class='bevel'>
 {STICKY_ICON}{NEWSTITLE}
@@ -210,7 +220,7 @@ $NEWSSTYLE = "<div class='cap_border'><div class='main_caption'><div class='beve
  ".LAN_THEME_6."
 {NEWSDATE}
 </td><td style='text-align: center; padding: 3px; padding-bottom: 0px; white-space: nowrap'>
-<!-- -->
+<img src='".THEME_ABS."images/comments_16.png' style='width: 16px; height: 16px' alt='' />
 </td>
 <td style='padding: 0px; padding-left: 2px; white-space: nowrap'>
 {NEWSCOMMENTS}
@@ -238,8 +248,21 @@ define('TRACKBACKBEFORESTRING', '&nbsp;|&nbsp;');
 
 //	[tablestyle]
 
-function tablestyle($caption, $text, $mode){
+function tablestyle($caption, $text, $mode)
+{
 	global $style;
+	
+	
+	if($mode == 'admin-login')
+	{
+		
+		echo $text;	
+		return;
+	}
+	
+	
+	
+	
 	$caption = $caption ? $caption : '&nbsp;';
 	if ((isset($mode['style']) && $mode['style'] == 'button_menu') || (isset($mode) && ($mode == 'menus_config'))) {
 		$menu = ' buttons';
