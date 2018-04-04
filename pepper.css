@@ -60,11 +60,11 @@ form {
 }
 
 .button {
-	background-image : url(images/button.png);
+	background-image : url(images/classic/button.png);
 }
 
 .button:hover {
-	background-image : url(images/buttonover.png);
+	background-image : url(images/classic/buttonover.png);
 }
 
 .nextprev {
@@ -139,6 +139,9 @@ ul {
 
 .top_section_left {
 	vertical-align: middle;
+	width: 190px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .top_section_mid {
@@ -146,7 +149,7 @@ ul {
 	text-align: right;
 	padding: 3px 5px 3px 0px;
 	border-left: 1px solid #000;
-	background-image: url(images/top_mid_back_pepper.jpg);
+	background-image: url(images/classic/top_mid_back_pepper.jpg);
 	background-repeat: no-repeat;
 	background-color: #F3EDED;
 }
@@ -155,10 +158,13 @@ ul {
 	vertical-align: middle;
 	text-align: center;
 	border-left: 1px solid #000;
-	background-image: url(images/top_right_back_pepper.png);
+	background-image: url(images/classic/top_right_back_pepper.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: #F3EDED;
+	padding: 0px;
+	white-space: nowrap;
+	width: 170px;
 }
 
 .menus_container {
