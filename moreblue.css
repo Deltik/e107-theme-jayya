@@ -1,6 +1,6 @@
 /* Core Classes */
 body {
-	background-color: #e1e4e8;
+	background-color: #d3def0;
 }
 
 body, td {
@@ -62,11 +62,11 @@ form {
 }
 
 .button {
-	background-image : url(images/classic/button.png);
+	background-image : url(images/moreblue/button.png);
 }
 
 .button:hover {
-	background-image : url(images/classic/buttonover.png);
+	background-image : url(images/moreblue/buttonover.png);
 }
 
 .nextprev {
@@ -142,30 +142,34 @@ ul {
 
 .top_section_left {
 	vertical-align: middle;
+	background-image: url(images/moreblue/top_left_back.jpg);
 	width: 190px;
 	padding-left: 5px;
 	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 2px;
 }
 
 .top_section_mid {
 	vertical-align: bottom;
 	text-align: right;
 	padding: 3px 5px 3px 0px;
-	border-left: 1px solid #878787;
-	background-image: url(images/classic/top_mid_back.jpg);
+	/*border-left: 1px solid #878787;*/
+	background-image: url(images/moreblue/top_mid_back.jpg);
 	background-repeat: no-repeat;
-	background-color: #E9EAF2;
+	background-color: #D3DEF0;
 }
 
 .top_section_right {
 	vertical-align: middle;
 	text-align: center;
-	border-left: 1px solid #878787;
-	background-image: url(images/classic/top_right_back.jpg);
+	/*border-left: 1px solid #878787;*/
+	background-image: url(images/moreblue/top_right_back.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: #f3f3f7;
-	padding: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
 	white-space: nowrap;
 	width: 170px;
 }
@@ -183,7 +187,7 @@ ul {
 .left_menu, .right_menu {
 	width: 170px;
 	vertical-align: top;
-	background-image: url(images/classic/s_body.png);
+	background-image: url(images/moreblue/s_body.png);
 	background-repeat: repeat-y;
 	background-color: #f0f1f2;
 }
@@ -216,17 +220,17 @@ ul {
 }
 
 .main_caption {
-	background-image: url(images/classic/s_main_cap.png);
-	background-color: #e1e4e8;
+	background-image: url(images/moreblue/s_main_cap.png);
+	background-color: #d3def0;
 }
 
 .left_caption, .right_caption {
-	background-image: url(images/classic/s_left_cap.png);
+	background-image: url(images/moreblue/s_left_cap.png);
 	background-color: #d2d5d9;
 }
 
 .bevel {
-	background-image: url(images/classic/s_left_bevel.png);
+	background-image: url(images/moreblue/s_left_bevel.png);
 	background-repeat: no-repeat;
 	background-position: right;
 }
@@ -274,7 +278,7 @@ div.menuBar, div.menuBar a.menuButton, div.menuButton, div.menuButton_over, div.
 
 div.menuBar {
 	background-color: #F7F9FA;
-	background-image: url(images/classic/s_nav.png);
+	background-image: url(images/moreblue/s_nav.png);
 	background-repeat: repeat-x;
 	border-top: 1px solid #fff;
 	padding: 4px 0px;
@@ -300,6 +304,9 @@ div.menuBar a.menuButton, div.menuButton, div.menuButton_over {
 	text-decoration: none;
 	top: 0px;
 	z-index: 100;
+	border-radius: 8px 8px 0px 0px;
+	-moz-border-radius: 8px 8px 0px 0px;
+	-webkit-border-radius: 8px 8px 0px 0px;
 }
 
 div.menuBar a.menuButton:hover, div.menuButton:hover, div.menuButton_over {
@@ -308,14 +315,17 @@ div.menuBar a.menuButton:hover, div.menuButton:hover, div.menuButton_over {
 }
 
 div.menuBar a.menuButtonActive, div.menuButtonActive, div.menuButtonActive:hover, div.menuBar a.menuButtonActive:hover {
-	background-color: #fff;
+	background-color: #d3def0;
 	border-color: #a5a5a5 #fff #fff #a5a5a5 !important;
 	left: 1px;
 	top: 1px;
+	border-radius: 8px 8px 0px 0px;
+	-moz-border-radius: 8px 8px 0px 0px;
+	-webkit-border-radius: 8px 8px 0px 0px;
 }
 
 div.menu {
-	background-color: #FCFDFF;
+	background-color: #d3def0;
 	border: 1px solid;
 	border-color: #fff #a5a5a5 #a5a5a5 #fff;
 	left: 0px;
@@ -324,6 +334,9 @@ div.menu {
 	top: 0px;
 	visibility: hidden;
 	z-index: 101;
+	border-radius: 0px 8px 8px 8px;
+	-moz-border-radius: 0px 8px 8px 8px;
+	-webkit-border-radius: 0px 8px 8px 8px;
 }
 
 div.menu a.menuItem {
@@ -580,11 +593,11 @@ div.bbarea.small, .tbox.small, .helpbox.small { width: 250px !important; }
 
 .s-message .s-message-title { height: 32px; background: 0 50% no-repeat; padding-left: 42px; font-size: 14px; font-weight: bold; line-height: 32px; }
 
-.s-message div.info 		.s-message-title 	{ background-image: url(images/classic/messagebox_info.png); }
-.s-message div.error 	.s-message-title 	{ background-image: url(images/classic/messagebox_critical.png); } 
-.s-message div.success 	.s-message-title 	{ background-image: url(images/classic/ok.png); }
-.s-message div.warning 	.s-message-title	{ background-image: url(images/classic/messagebox_warning.png); }
-.s-message div.debug 	.s-message-title	{ background-image: url(images/classic/messagebox_info.png); }
+.s-message div.info 		.s-message-title 	{ background-image: url(images/moreblue/messagebox_info.png); }
+.s-message div.error 	.s-message-title 	{ background-image: url(images/moreblue/messagebox_critical.png); } 
+.s-message div.success 	.s-message-title 	{ background-image: url(images/moreblue/ok.png); }
+.s-message div.warning 	.s-message-title	{ background-image: url(images/moreblue/messagebox_warning.png); }
+.s-message div.debug 	.s-message-title	{ background-image: url(images/moreblue/messagebox_info.png); }
 
 .s-message-body { padding-left: 42px; }
 .s-message-item {}
@@ -619,25 +632,25 @@ button span {
 }
 
 /*blue buttons*/
-button 					{ background:url(images/classic/btn_right.gif) right no-repeat;  }
-button span 			{ background:url(images/classic/btn_left.gif) left no-repeat;  }
+button 					{ background:url(images/moreblue/btn_right.gif) right no-repeat;  }
+button span 			{ background:url(images/moreblue/btn_left.gif) left no-repeat;  }
 
 button:hover,
-button:focus 			{ background:url(images/classic/btn_over_right.gif) right no-repeat; }
+button:focus 			{ background:url(images/moreblue/btn_over_right.gif) right no-repeat; }
 button:hover span, 
-button:focus span 		{ background:url(images/classic/btn_over_left.gif) left no-repeat; } 
+button:focus span 		{ background:url(images/moreblue/btn_over_left.gif) left no-repeat; } 
 
 
-button:active			{ background:url(images/classic/btn_active_right.gif) right no-repeat; }
-button:active	span	{ background:url(images/classic/btn_active_left.gif) left no-repeat; }
+button:active			{ background:url(images/moreblue/btn_active_right.gif) right no-repeat; }
+button:active	span	{ background:url(images/moreblue/btn_active_left.gif) left no-repeat; }
 
 button::-moz-focus-inner { border: none; } /*To all who have a problem with 1px spans offset in firefox, the following sentence will solve this problem: */
 
 button.delete span			{ padding-left: 30px; }
-button.delete span			{ background-image:url(images/classic/btn_remove_left.gif); }
+button.delete span			{ background-image:url(images/moreblue/btn_remove_left.gif); }
 button.delete:hover span,
-button.delete:focus span 	{ background-image:url(images/classic/btn_remove_over_left.gif) } 
-button.delete:active span	{ background-image:url(images/classic/btn_remove_active_left.gif)}
+button.delete:focus span 	{ background-image:url(images/moreblue/btn_remove_over_left.gif) } 
+button.delete:active span	{ background-image:url(images/moreblue/btn_remove_active_left.gif)}
 
 /*default submit*/
 button.submit span			{}
@@ -648,10 +661,10 @@ button.submit:active span	{}
 
 
 button.update span			{ padding-left: 30px; }
-button.update span			{ background-image:url(images/classic/btn_update_left.gif); }
+button.update span			{ background-image:url(images/moreblue/btn_update_left.gif); }
 button.update:hover span,
-button.update:focus span 	{ background-image:url(images/classic/btn_update_over_left.gif)}
-button.update:active span	{ background-image:url(images/classic/btn_update_active_left.gif)}
+button.update:focus span 	{ background-image:url(images/moreblue/btn_update_over_left.gif)}
+button.update:active span	{ background-image:url(images/moreblue/btn_update_active_left.gif)}
 
 button.create span			{ padding-left: 30px; }
 button.create span			{}
@@ -751,13 +764,13 @@ ul.plugin-navigation li {
 	background-color: #F7F9FA;
 	border-bottom: 1px solid #000;
 	text-align: left;
-	background: url(images/classic/arrow_16.png) 2px 2px no-repeat;
+	background: url(images/moreblue/arrow_16.png) 2px 2px no-repeat;
 	line-height: 20px;
 	padding: 0px 0px 0px 20px; border-right: 0px; margin: 0 0;
 }
 ul.plugin-navigation li.active,
 ul.plugin-navigation li:hover  {
-	background: url(images/classic/arrow_over_16.png) 2px 2px no-repeat;
+	background: url(images/moreblue/arrow_over_16.png) 2px 2px no-repeat;
 }
 
 ul.plugin-navigation a {
@@ -837,7 +850,4 @@ h1.bbcode, h2.bbcode, h3.bbcode, h4.bbcode, h5.bbcode, h6.bbcode {  }/* override
 
 div.bbcode { margin: 15px 0px; clear: both; } /* layout control via bbcodes */
 
-/* Consistency with Jayya v2.0 */
-.jayya_clock, .top_section_right #Clock {
-	display: none;
-}
+

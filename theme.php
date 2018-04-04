@@ -3,15 +3,13 @@
  * e107 website system
  *
  * Copyright (C) 2008-2009 e107 Inc (e107.org)
+ *
+ * Jayya MoreBlue images are from Debian MoreBlue Orbit GDM Theme
+ * version 1.0 (August 2008)
+ * Copyright (C) 2006-2008  Andre Luiz Rodrigues Ferreira
+ *
  * Released under the terms and conditions of the
  * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
- *
- *
- *
- * $Source: /cvs_backup/e107_0.8/e107_themes/jayya/theme.php,v $
- * $Revision$
- * $Date$
- * $Author$
  */
 
 // Protect the file from direct access
@@ -48,15 +46,15 @@ $HEADER['3_column'] = "<table class='page_container'>
 
 <table class='top_section'>
 <tr>
-<td class='top_section_left' style='width: 190px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 2px;'>
+<td class='top_section_left'>
 {LOGO}
 </td>
 <td class='top_section_mid'>
 {BANNER}
 </td>
 
-<td class='top_section_right' style='padding-left: 5px; padding-right: 5px; white-space: nowrap; width: 170px'>
-{CUSTOM=clock}<br />
+<td class='top_section_right'>
+{CUSTOM=clock}<span class='jayya_clock'><br /></span>
 {CUSTOM=search+default}
 </td>
 </tr>
@@ -114,15 +112,15 @@ $HEADER['2_column'] = "<table class='page_container'>
 
 <table class='top_section'>
 <tr>
-<td class='top_section_left' style='width: 190px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 2px;'>
+<td class='top_section_left'>
 {LOGO}
 </td>
 <td class='top_section_mid'>
 {BANNER}
 </td>
 
-<td class='top_section_right' style='padding-left: 5px; padding-right: 5px; white-space: nowrap; width: 170px'>
-{CUSTOM=clock}
+<td class='top_section_right'>
+{CUSTOM=clock}<span class='jayya_clock'><br /></span>
 {CUSTOM=search+default}
 </td>
 </tr>
