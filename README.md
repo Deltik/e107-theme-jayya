@@ -4,6 +4,8 @@
 
 Classic e107 theme now maintained by Deltik
 
+![preview.jpg](/preview.jpg?raw=true "Theme Preview")
+
 ## History
 
 These are the chronicles of Jayya up to the creation of this repository.
