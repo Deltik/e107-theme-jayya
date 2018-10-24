@@ -61,7 +61,7 @@ $HEADER['3_column'] = "<table class='page_container'>
 </table>
 
 <div>
-{SITELINKS_ALT=".THEME_ABS."images/arrow.png+noclick}
+{SITELINKS_ALT=".THEME_ABS."images/common/arrow.png+noclick}
 </div>
 
 <table class='main_section'>
@@ -127,7 +127,7 @@ $HEADER['2_column'] = "<table class='page_container'>
 </table>
 
 <div>
-{SITELINKS_ALT=".THEME_ABS."images/arrow.png+noclick}
+{SITELINKS_ALT=".THEME_ABS."images/common/arrow.png+noclick}
 </div>
 
 <table class='main_section'>
