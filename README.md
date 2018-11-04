@@ -1,6 +1,7 @@
 # e107 Theme - Jayya
 
 ![GitHub release](https://img.shields.io/github/release/Deltik/e107-theme-jayya.svg)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDeltik%2Fe107-theme-jayya.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FDeltik%2Fe107-theme-jayya?ref=badge_shield)
 
 Classic e107 theme now maintained by Deltik
 
@@ -80,3 +81,7 @@ On 02 April 2018, Deltik started this repository begin supporting Jayya again.  
 Finally, on 03 April 2018, Deltik merged Jayya MoreBlue into the last official update to Jayya as an alternative stylesheet, allowing one theme to serve both styles (in addition to the two original alternative stylesheets that Jayya officially had).
 
 Jayya's new home is this repository, and releases can be found on the [releases page](https://github.com/Deltik/e107-theme-jayya/releases).
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDeltik%2Fe107-theme-jayya.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FDeltik%2Fe107-theme-jayya?ref=badge_large)
