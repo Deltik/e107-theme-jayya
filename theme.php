@@ -177,7 +177,7 @@ define('LINKALIGN', 'left');
 $sc_style['NEWSIMAGE']['pre'] = "<td style='padding-right: 7px; vertical-align: top'>";
 $sc_style['NEWSIMAGE']['post'] = "</td>";
 
-$sc_style['NEWSCOMMENTS']['pre'] = "<img src='".THEME_ABS."images/comments_16.png' style='width: 16px; height: 16px' alt='' />";
+$sc_style['NEWSCOMMENTS']['pre'] = "<img src='".THEME_ABS."images/common/comments_16.png' style='width: 16px; height: 16px' alt='' />";
 $sc_style['NEWSCOMMENTS']['post'] = "";
 
 
@@ -315,9 +315,9 @@ $COMMENTSTYLE = "<div class='spacer' style='text-align:center'><table class='fbo
 
 
 // poll style
-$POLLSTYLE = "<img src='".THEME_ABS."images/polls.png' style='width: 10px; height: 14px; vertical-align: bottom' /> {QUESTION}
+$POLLSTYLE = "<img src='".THEME_ABS."images/common/polls.png' style='width: 10px; height: 14px; vertical-align: bottom' /> {QUESTION}
 <br /><br />
-{OPTIONS=<img src='".THEME_ABS."images/bullet2.gif' style='width: 10px; height: 10px' /> OPTION<br />BAR<br /><span class='smalltext'>PERCENTAGE VOTES</span><br /><br />}
+{OPTIONS=<img src='".THEME_ABS."images/common/bullet2.gif' style='width: 10px; height: 10px' /> OPTION<br />BAR<br /><span class='smalltext'>PERCENTAGE VOTES</span><br /><br />}
 <div style='text-align:center' class='smalltext'>{AUTHOR}<br />{VOTE_TOTAL} {COMMENTS}
 <br />
 {OLDPOLLS}
