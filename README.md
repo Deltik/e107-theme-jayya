@@ -75,7 +75,7 @@ Deltik.org remained on its fork of Jayya until almost 7 years later, on 23 Janua
 
 Since e107 v2 had adopted newer frontend design implementations, Deltik.org needed to catch up.
 
-On 02 April 2018, Deltik started this repository begin supporting Jayya again.  Deltik Jayya was assigned the retronym **Jayya MoreBlue**, because its styling elements came from the [Debian MoreBlue Orbit GDM Theme](https://web.archive.org/web/20180406190541/http://dgepi.salud.gob.mx/gdm/themes/debian-moreblue-orbit/).
+On 02 April 2018, Deltik started this repository to begin supporting Jayya again.  Deltik Jayya was assigned the retronym **Jayya MoreBlue**, because its styling elements came from the [Debian MoreBlue Orbit GDM Theme](https://web.archive.org/web/20180406190541/http://dgepi.salud.gob.mx/gdm/themes/debian-moreblue-orbit/).
 
 Finally, on 03 April 2018, Deltik merged Jayya MoreBlue into the last official update to Jayya as an alternative stylesheet, allowing one theme to serve both styles (in addition to the two original alternative stylesheets that Jayya officially had).
 

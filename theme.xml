@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Theme name="Jayya" version="2.2.4" date="2020-02-24" compatibility="2.0">
+<e107Theme name="Jayya3" version="3.0.0" date="20201-10-16" compatibility="2.3.0">
 	<author name ="Deltik" url="https://www.deltik.org" />
 	<summary lan="">Classic e107 theme now maintained by Deltik</summary>
 	<description lan="">Classic e107 theme now maintained by Deltik</description>
-	<compliance xhtml="1.1" css="2.1" />
 	<keywords>
 		<word>old</word>
 		<word>classic</word>
@@ -13,13 +12,14 @@
 		<image>preview.jpg</image>
 	</screenshots>
 	<stylesheets>
-		<css file="style.css" name="Default" />
-		<css file="moreblue.css" name="Inspired by Debian MoreBlue Orbit" />
-		<css file="canvas.css" name="Classic Jayya alternative stylesheet" />
-		<css file="pepper.css" name="Classic Jayya alternative stylesheet" />
+		<css file="skins/default.css"  name="Default" />
+		<css file="skins/moreblue.css" name="Inspired by Debian MoreBlue Orbit" />
+		<css file="skins/canvas.css"   name="Classic Jayya alternative stylesheet" />
+		<css file="skins/pepper.css"   name="Classic Jayya alternative stylesheet" />
 	</stylesheets>
  	<layouts>
+        <layout name='index'    title='Frontpage' />
 		<layout name='3_column' title='3 Columns' default='true' />
-        	<layout name='2_column' title='2 Columns' />
+        <layout name='2_column' title='2 Columns' />
 	</layouts>
 </e107Theme>

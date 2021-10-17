@@ -1,4 +1,5 @@
 <?php
+
 /*
  * e107 website system
  *
@@ -11,159 +12,215 @@
  * Released under the terms and conditions of the
  * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
  */
+ 
 
-// Protect the file from direct access
-if (!defined('e107_INIT')) { exit; }
+if(!defined('e107_INIT'))
+{
+	exit();
+}
+ 
+$sitetheme = deftrue('USERTHEME', e107::getPref('sitetheme')); 
+e107::getSingleton('theme_settings', e_THEME.$sitetheme."/theme_settings.php");
 
 
-// Get language definition files for this theme
-include_lan(__DIR__."/languages/".e_LANGUAGE.".php");
+////// fix for not able to set default skin ////////////////////////////////////
+////// issue https://github.com/e107inc/e107/issues/4514  6.6.2021 /////////////
+$tmp_frontcss = e107::getPref('themecss');     
+if($tmp_frontcss == "style.css") { 
+    $tmp_frontcss = "skins/default.css";
+    e107::getConfig()->setPref('themecss', $tmp_frontcss)->save(false,true,false);
+}
+////////////////////////////////////////////////////////////////////////////////
+ 
+/* tmp solution for testing  */
+$av_skins = array("canvas.css", "default.css", "pepper.css", "moreblue.css");
+if(isset($_GET['skin']) && in_array($_GET['skin'], $av_skins )) {
+    $tmp_frontcss = "skins/".$_GET['skin'];
+    e107::getConfig()->setPref('themecss', $tmp_frontcss)->save(false,true,false);
+    e107::redirect();
+} 
+ 
+////// Multilanguages/ /////////////////////////////////////////////////////////
+e107::lan('theme');
 
-
-// [theme]
-
-define("THEME_DISCLAIMER", "");
+////////////////////////////////////////////////////////////////////////////////
+define("THEME_LEGACY",false); //warning it is ignored somewhere
+//define("THEME_DISCLAIMER", "Copyright &copy; xxx by <a href='xxx'>xxx</a>. All rights reserved.");
+define("THEME_DISCLAIMER", " ");
 define("STANDARDS_MODE", TRUE);
+////// Your own css fixes ////////////////////////////////////////////////////
+define("CORE_CSS", false);  //copy core e107.css to theme and remove problematic rules 
 
-// [dont render core style sheet link]
-	$no_core_css = TRUE;
+/* way how to avoid loading libraries by core **********************************/
+/* 
+define("BOOTSTRAP",  5);
+define("FONTAWESOME",  5);
 
-// [layout]
+e107::getParser()->setBootstrap(5);
+e107::getParser()->setFontAwesome(5);
+e107::getForm()->_snippets = true;
+ 
+function fake() {
+  $fake = "font-awesome.min.css";
+  $fake = "bootstrap.min.js";
+  $fake = "bootstrap.min.css";
+}
+*/
 
 
-// [dont render core style sheet link]
 
-$no_core_css = TRUE;
+/*************** HEADERS AND FOOTERS  *****************************************/
+/* way how to change shortcodes on fly, it is not needed here, so just array()*/ 
+$elements = array();
+ 
+/* we need 2 headers */
+$LAYOUT['_header_'] = '';
+$LAYOUT['_footer_'] = '';
 
 
-// [layout]
+/* fill new header and footer */
+$LAYOUT_HEADER =  theme_settings::layout_header($elements);
+$LAYOUT_FOOTER =  theme_settings::layout_footer($elements);
+/************** end of HEADERS AND FOOTERS ***************** ******************/
 
-$layout = "_default";
 
-$HEADER['3_column'] = "<table class='page_container'>
-<tr>
-<td>
+/*************** LAYOUTS ******************************************************/
+$layout = '_default'; 
+ 
+///////////////////////DEFAULT 3 COLUMN LAYOUT ////////////////////////////////
+/* Note: use SETSTYLE for sidebars in settings class */ 
+/* Note: THEME_LAYOUT is not available */
 
-<table class='top_section'>
-<tr>
-<td class='top_section_left'>
-{LOGO}
-</td>
-<td class='top_section_mid'>
-{BANNER}
-</td>
+$LAYOUT['3_column'] = $LAYOUT_HEADER.'
+    {ALERTS}
+    <div class="container-fluid main_section">
+      <div class="row">
+        <div class="col-md-2 left_menu">
+            '.theme_settings::layout_sidebar('left').'
+        </div>
+        <div class="col-md-8 default_menu">
+          {SETSTYLE=default}
+          {FEATUREBOX|default}
+          {FEATUREBOX|dynamic}
+          {WMESSAGE}
+          {---}
+          <br />
+          {FEATUREBOX|tabs=notablestyle}
+        </div>
+        <div class="col-md-2 right_menu">
+            '.theme_settings::layout_sidebar('right').'
+        </div>
+      </div>  
+    </div>
+'.$LAYOUT_FOOTER;
+ 
+ 
+$LAYOUT['2_column'] = $LAYOUT_HEADER.'
+  {ALERTS} 
+  <div class="container-fluid main_section">
+      <div class="row">
+        <div class="col-md-2 left_menu">
+            '.theme_settings::layout_sidebar('left').'
+        </div>
+        <div class="col-md-10 default_menu">
+          {SETSTYLE=default}
+          {FEATUREBOX|default}
+          {FEATUREBOX|dynamic}
+          {WMESSAGE}
+          {---}
+          <br />
+          {FEATUREBOX|tabs=notablestyle}
+        </div>
+      </div>  
+    </div>
+ '.$LAYOUT_FOOTER;
+ 
+ 
+/* already prepared for theme class as methods, so let it this way */ 
+////// Theme meta tags /////////////////////////////////////////////////////////
+set_metas();
 
-<td class='top_section_right'>
-{CUSTOM=clock}<span class='jayya_clock'><br /></span>
-{CUSTOM=search+default}
-</td>
-</tr>
-</table>
+/////// Theme css  /////////////////////////////////////////////////////////////
+register_css();
 
-<div>
-{SITELINKS_ALT=".THEME_ABS."images/common/arrow.png+noclick}
-</div>
+/////// Theme js  /////////////////////////////////////////////////////////////
+register_js();
 
-<table class='main_section'>
-<colgroup>
-<col style='width: 170px' />
-<col style='width: auto' />
-<col style='width: 170px' />
-</colgroup>
+/////// Theme fonts ///////////////////////////////////////////////////////////
+register_fonts();
 
-<tr>
-<td class='left_menu'>
-<table class='menus_container'><tr><td>
-{SETSTYLE=leftmenu}
-{MENU=1}
-</td></tr></table>
-</td>
-<td class='default_menu'>
-{SETSTYLE=default}
-{FEATUREBOX|default}
-{FEATUREBOX|dynamic}
-{WMESSAGE}
-";
+/////// Theme icons ///////////////////////////////////////////////////////////
+register_icons();
 
-$FOOTER['3_column'] = "<br />
-{FEATUREBOX|tabs=notablestyle}
-</td>
-<td class='right_menu'>
-<table class='menus_container'><tr><td>
-{SETSTYLE=rightmenu}
-{MENU=2}
-</td></tr></table>
-</td>
-</tr>
-</table>
-<div style='text-align:center'>
-<br />
-{SITEDISCLAIMER}
-<br /><br />
-</div>
-</td>
-</tr>
-</table>
-";
+getInlineCodes();
 
-$HEADER['2_column'] = "<table class='page_container'>
-<tr>
-<td>
 
-<table class='top_section'>
-<tr>
-<td class='top_section_left'>
-{LOGO}
-</td>
-<td class='top_section_mid'>
-{BANNER}
-</td>
 
-<td class='top_section_right'>
-{CUSTOM=clock}<span class='jayya_clock'><br /></span>
-{CUSTOM=search+default}
-</td>
-</tr>
-</table>
+function set_metas()
+{
+    e107::meta('viewport', 'width=device-width, initial-scale=1.0');
+}
 
-<div>
-{SITELINKS_ALT=".THEME_ABS."images/common/arrow.png+noclick}
-</div>
+function register_css()
+{
+    //e107::css('theme', 'css/bootstrap.min.css'); - too soon
+    e107::css('theme', 'css/bootstrap-grid.css');
+ 
+    e107::css('theme', 'css/e107.css');   //needed parts of core e107.css
+    e107::css('theme', 'style.css');
+	 
+}
+          
+function register_js()
+{
+    //e107::js('theme', 'js/bootstrap.bundle.min.js', 'jquery');
+    e107::js('theme', 'fix.js', 'jquery'); //core fixes done by js
+}
+           
+function register_fonts()
+{ 
+  /* e107::css('url', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap&subset=latin-ext');
+  e107::css('url', 'https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext');
+  e107::css('url', 'https://fonts.googleapis.com/css?family=Montserrat:400,700,200|Open+Sans+Condensed:700&subset=latin-ext'); */
+ 
+}
+          
+function register_icons()
+{
+    e107::css('url', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css');
+}
 
-<table class='main_section'>
-<colgroup>
-<col style='width: 170px' />
-<col style='width: auto' />
-</colgroup>
+function getInlineCodes()
+{
+	/*
+    $inlinecss = e107::pref('theme', 'custom_css', false);
+	if ($inlinecss) {
+		e107::css("inline", $inlinecss);
+	}
+	$inlinejs = e107::pref('theme', 'inlinejs');
+	if ($inlinejs) {
+		e107::js("footer-inline", $inlinejs);
+	}
+    */
+}
 
-<tr>
-<td class='left_menu'>
-<table class='menus_container'><tr><td>
-{SETSTYLE=leftmenu}
-{MENU=1}
-{MENU=2}
-</td></tr></table>
-</td>
-<td class='default_menu'>
-{SETSTYLE=default}
-{WMESSAGE}
-";
+/**
+ * @param string $text
+ * @return string without p tags added always with bbcodes
+ * note: this solves W3C validation issue and CSS style problems
+ * use this carefully, mainly for custom menus, let decision on theme developers
+ */
 
-$FOOTER['2_column'] = "<br />
-</td>
-</tr>
-</table>
-<div style='text-align:center'>
-<br />
-{SITEDISCLAIMER}
-<br /><br />
-</div>
-</td>
-</tr>
-</table>
-";
-// [linkstyle]
+function remove_ptags($text = '') // FIXME this is a bug in e107 if this is required.
+{
+	$text = str_replace(array("<!-- bbcode-html-start --><p>", "</p><!-- bbcode-html-end -->"), "", $text);
 
+	return $text;
+}
+
+
+
+/* the rest of jayya theme.php ************************************************/
 define('PRELINK', '');
 define('POSTLINK', '');
 define('LINKSTART', '');
@@ -251,18 +308,24 @@ function tablestyle($caption, $text, $mode){
 
 	$menu .= ($style && $style != 'default') ? ' non_default' : '';
 
-	echo "<div class='cap_border".$but_border."'>";
-	if ($style == 'leftmenu') {
-		echo "<div class='left_caption'><div class='bevel'>".$caption."</div></div>";
-	}  else if ($style == 'rightmenu') {
-		echo "<div class='right_caption'><div class='bevel'>".$caption."</div></div>";
-	} else {
-		echo "<div class='main_caption'><div class='bevel'>".$caption."</div></div>";
-	}
-	echo "</div>";
-	if ($text != "") {
-		echo "<table class='cont'><tr><td class='menu_content ".$menu."'>".$text.$bodybreak."</td></tr></table>";
-	}
+    if ($style == "none") {
+        echo $text;
+    }
+    else {
+    	echo "<div class='cap_border".$but_border."'>";
+    	if ($style == 'leftmenu') {
+    		echo "<div class='left_caption'><div class='bevel'>".$caption."</div></div>";
+    	}  else if ($style == 'rightmenu') {
+    		echo "<div class='right_caption'><div class='bevel'>".$caption."</div></div>";
+    	} else {
+    		echo "<div class='main_caption'><div class='bevel'>".$caption."</div></div>";
+    	}
+        
+    	echo "</div>";
+    	if ($text != "") {
+    		echo "<table class='cont'><tr><td class='menu_content ".$menu."'>".$text.$bodybreak."</td></tr></table>";
+    	}
+    }
 }
 
 
@@ -323,4 +386,6 @@ $POLLSTYLE = "<img src='".THEME_ABS."images/common/polls.png' style='width: 10px
 {OLDPOLLS}
 </div>";
 
-?>
+
+
+ 
