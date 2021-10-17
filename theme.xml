@@ -18,7 +18,6 @@
 		<css file="skins/pepper.css"   name="Classic Jayya alternative stylesheet" />
 	</stylesheets>
  	<layouts>
-        <layout name='index'    title='Frontpage' />
 		<layout name='3_column' title='3 Columns' default='true' />
         <layout name='2_column' title='2 Columns' />
 	</layouts>
