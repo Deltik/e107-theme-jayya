@@ -280,6 +280,12 @@ b {
   margin-right: -calc(var(--bs-gutter-x) * .5);
 }
 
+.logo {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  display: block;
+}
+
 /* Nav Menu Classes */
 div.menuBar, div.menuBar a.menuButton, div.menuButton, div.menuButton_over, div.menu, div.menu a.menuItem {
   font: normal 11px arial, verdana, tahoma, sans-serif;

@@ -55,7 +55,11 @@ class theme_settings
                 </div>
             </div>
             <div>
+              <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+                <div class="container-fluid">
               '.$navbar_shortcode.'
+                </div>
+              </nav>
             </div>
          ';
  
@@ -287,9 +291,6 @@ class theme_settings
     public function dropdown_navigation() {
  
     $html = '
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -297,8 +298,6 @@ class theme_settings
           {NAVIGATION}
          <div class="m-2 d-block d-sm-none">{SEARCH}</div>
         </div>
-      </div>
-    </nav>
     ';
     return $html;
     }
@@ -306,10 +305,7 @@ class theme_settings
     
     public function offcanvas_navigation() {
  
-    $html = '<nav class="navbar navbar-expand-lg navbar-light bg-light"> 
-    
-    <div class="container-fluid">
-               
+    $html = '             
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" aria-label="Toggle navigation" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -323,7 +319,7 @@ class theme_settings
         {NAVIGATION}
         <div class="m-2 d-block d-sm-none">{SEARCH}</div>
       </div>
-    </div></nav>';
+    </div> ';
     
     return $html;
     
