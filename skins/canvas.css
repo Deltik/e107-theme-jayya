@@ -230,12 +230,12 @@ ul {
 }
 
 /* Nav Menu Classes */
-div.menuBar, div.menuBar a.menuButton, div.menuButton, div.menuButton_over, div.menu, div.menu a.menuItem {
+nav.menuBar, nav.menuBar a.menuButton, li.menuButton, li.menuButton_over, ul.menu, ul.menu .menuItem {
   font: normal 11px arial, verdana, tahoma, sans-serif;
   color: #000;
 }
 
-div.menuBar {
+nav.menuBar {
   background-color: #F7F9FA;
   background-image: url(images/classic/s_nav.png);
   background-repeat: repeat-x;
@@ -250,7 +250,7 @@ div.emenuBar {
   text-align: left;
 }
 
-div.menuBar a.menuButton, div.menuButton, div.menuButton_over {
+nav.menuBar a.menuButton, li.menuButton, li.menuButton_over {
   background-color: transparent;
   border: 1px solid;
   border-color: transparent !important;
@@ -265,31 +265,28 @@ div.menuBar a.menuButton, div.menuButton, div.menuButton_over {
   z-index: 100;
 }
 
-div.menuBar a.menuButton:hover, div.menuButton:hover, div.menuButton_over {
+nav.menuBar a.menuButton:hover, li.menuButton:hover, li.menuButton_over {
   background-color: transparent;
   border-color: #fff #a5a5a5 #a5a5a5 #fff !important;
 }
 
-div.menuBar a.menuButtonActive, div.menuButtonActive, div.menuButtonActive:hover, div.menuBar a.menuButtonActive:hover {
+nav.menuBar a.menuButtonActive, li.menuButtonActive, li.menuButtonActive:hover, nav.menuBar a.menuButtonActive:hover {
   background-color: #fff;
   border-color: #a5a5a5 #fff #fff #a5a5a5 !important;
   left: 1px;
   top: 1px;
 }
 
-div.menu {
+ul.menu {
   background-color: #FCFDFF;
   border: 1px solid;
   border-color: #fff #a5a5a5 #a5a5a5 #fff;
   left: 0px;
   padding: 1px;
-  position: absolute;
-  top: 0px;
-  visibility: hidden;
   z-index: 101;
 }
 
-div.menu a.menuItem {
+ul.menu .menuItem {
   cursor: default;
   display: block;
   padding: 2px 11px 2px 0px;
@@ -297,30 +294,36 @@ div.menu a.menuItem {
   white-space: nowrap;
 }
 
-div.menu a.menuItem:hover, div.menu a.menuItemHighlight {
+ul.menu .menuItem:hover, ul.menu li.menuItemHighlight {
   background-color: #F2F4FF;
 }
 
-div.menu a.menuItem span.menuItemBuffer, div.menu a.menuItem:hover span.menuItemBuffer {
+ul.menu .menuItem span.menuItemBuffer, ul.menu .menuItem:hover span.menuItemBuffer {
   padding: 0px 2px;
 }
 
-div.menu a.menuItem span.menuItemText {
+ul.menu .menuItem span.menuItemText {
   padding: 0px 0px 0px 3px;
 }
 
-div.menu a.menuItem span.menuItemArrow {
+ul.menu .menuItem span.menuItemArrow {
   margin-right: -0.75em;
 }
 
-div.menu div.menuItemSep {
+ul.menu li.menuItemSep {
   border-top: 1px solid #a5a5a5;
   border-bottom: 1px solid #fff;
   margin: 4px 2px;
 }
 
-a.menuItem.header {
+.menuItem.header {
   border-bottom: 1px solid #b3b3b3;
+}
+
+.menuItem .dropdown-item.active, .menuItem .dropdown-item:active {
+  color: inherit;
+  text-decoration: inherit;
+  background-color: inherit;
 }
 
 /* button style */

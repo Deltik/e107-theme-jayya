@@ -264,13 +264,13 @@ td.link_button {
   display: block;
 }
 
-/* Nav Menu Classes */
-div.menuBar, div.menuBar a.menuButton, div.menuButton, div.menuButton_over, div.menu, div.menu a.menuItem {
+/* Nav Menu Classes Pepper */
+nav.menuBar, .menuBar a.menuButton, ul.menuButton, ul.menuButton_over, ul.menu, ul.menu a.menuItem {
   font: normal 11px arial, verdana, tahoma, sans-serif;
   color: #000;
 }
 
-div.menuBar {
+.menuBar {
   background-color: #FFF8D9;
   border-top: 1px solid #fff;
   padding: 4px 0px;
@@ -283,7 +283,7 @@ div.emenuBar {
   text-align: left;
 }
 
-div.menuBar a.menuButton, div.menuButton, div.menuButton_over {
+nav.menuBar a.menuButton, ul.menuButton, ul.menuButton_over {
   background-color: transparent;
   border: 1px solid #FFF8D9;
   cursor: default;
@@ -296,31 +296,28 @@ div.menuBar a.menuButton, div.menuButton, div.menuButton_over {
   z-index: 100;
 }
 
-div.menuBar a.menuButton:hover, div.menuButton:hover, div.menuButton_over {
+nav.menuBar a.menuButton:hover, ul.menuButton:hover, ul.menuButton_over {
   background-color: transparent;
   border-color: #fff #a5a5a5 #a5a5a5 #fff;
 }
 
-div.menuBar a.menuButtonActive, div.menuButtonActive, div.menuButtonActive:hover, div.menuBar a.menuButtonActive:hover {
+nav.menuBar a.menuButtonActive, ul.menuButtonActive, ul.menuButtonActive:hover, .menuBar a.menuButtonActive:hover {
   background-color: #ffffef;
   border-color: #a5a5a5 #fff #fff #a5a5a5;
   left: 1px;
   top: 1px;
 }
 
-div.menu {
+ul.menu {
   background-color: #FFF8D9;
   border: 1px solid;
   border-color: #fff #a5a5a5 #a5a5a5 #fff;
   left: 0px;
   padding: 1px;
-  position: absolute;
-  top: 0px;
-  visibility: hidden;
   z-index: 101;
 }
 
-div.menu a.menuItem {
+ul.menu a.menuItem {
   cursor: default;
   display: block;
   padding: 2px 11px 2px 0px;
@@ -328,23 +325,23 @@ div.menu a.menuItem {
   white-space: nowrap;
 }
 
-div.menu a.menuItem:hover, div.menu a.menuItemHighlight {
+ul.menu a.menuItem:hover, ul.menu a.menuItemHighlight {
   background-color: #ffffef;
 }
 
-div.menu a.menuItem span.menuItemBuffer, div.menu a.menuItem:hover span.menuItemBuffer {
+ul.menu a.menuItem span.menuItemBuffer, ul.menu a.menuItem:hover span.menuItemBuffer {
   padding: 0px 2px;
 }
 
-div.menu a.menuItem span.menuItemText {
+ul.menu a.menuItem span.menuItemText {
   padding: 0px 0px 0px 3px;
 }
 
-div.menu a.menuItem span.menuItemArrow {
+ul.menu a.menuItem span.menuItemArrow {
   margin-right: -0.75em;
 }
 
-div.menu div.menuItemSep {
+ul.menu li.menuItemSep {
   border-top: 1px solid #a5a5a5;
   border-bottom: 1px solid #fff;
   margin: 4px 2px;
@@ -352,6 +349,12 @@ div.menu div.menuItemSep {
 
 a.menuItem.header {
   border-bottom: 1px solid #b3b3b3;
+}
+
+.menuItem .dropdown-item.active, .menuItem .dropdown-item:active {
+  color: inherit;
+  text-decoration: inherit;
+  background-color: inherit;
 }
 
 /*

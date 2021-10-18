@@ -60,7 +60,7 @@ $NAVIGATION_TEMPLATE['main']['submenu_end']   = $link_settings['main_sub']['post
 // Sub menu Link 
 $NAVIGATION_TEMPLATE['main']['submenu_item'] = 
 $link_settings['main_sub']['linkstart']. '
-    <a '.$link_settings['main_sub']['linkclass_hilite'].' href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}{NAV_LINK_NAME}</a>
+    <a class="'.$link_settings['main_sub']['linkclass_hilite'].' href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}{NAV_LINK_NAME}</a>
 </li>
 ';
 
@@ -68,7 +68,7 @@ $link_settings['main_sub']['linkstart']. '
 // Sub menu Link - active state
 $NAVIGATION_TEMPLATE['main']['submenu_item_active'] = 
 $link_settings['main_sub']['linkstart_hilite'] .'
-	<a '.$link_settings['main_sub']['linkclass_hilite'].' href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}{NAV_LINK_NAME}</a>
+	<a class="'.$link_settings['main_sub']['linkclass_hilite'].' href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}{NAV_LINK_NAME}</a>
 </li>
 ';
 
