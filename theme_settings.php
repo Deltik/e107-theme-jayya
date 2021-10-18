@@ -7,14 +7,19 @@ class theme_settings
     
     public function __construct() {
       
-         //$defaults['search_shortcode']      = "{SEARCH}";
-         $defaults['search_shortcode']      = "{CUSTOM=search+default}";
+         $defaults['search_shortcode']      = "{SEARCH}";
+         //$defaults['search_shortcode']      = "{CUSTOM=search+default}";
                
          $defaults['topnav_shortcode']      = '{SIGNIN}';
          //$defaults['navbar_shortcode']      = '{NAVIGATION}';
-         $defaults['navbar_shortcode']      = '{SITELINKS_ALT=".THEME_ABS."images/common/arrow.png+noclick}';
-        
-         
+         //$defaults['navbar_shortcode']      = '{SITELINKS_ALT=".THEME_ABS."images/common/arrow.png+noclick}';
+         if(e107::pref('theme', 'offcanvas_navigation', false)) {        
+           $defaults['navbar_shortcode'] = $this->offcanvas_navigation();
+         }
+         else {
+            $defaults['navbar_shortcode'] = $this->dropdown_navigation();
+           //$defaults['navbar_shortcode']      = '{NAVIGATION}';
+         }
          $defaults['slogan_shortcode']      = '{SITETAG}';
          $defaults['sitename_shortcode']    = '{SITENAME}';  
          $defaults['skinchange_block']      = "";
@@ -31,21 +36,21 @@ class theme_settings
         $parms = array_merge($defaults, $elements);
         extract($parms);
 
-        $clock_menu = "{CUSTOM=clock}<span class='jayya_clock'><br /></span>";
+      //  $clock_menu = "{CUSTOM=clock}<span class='jayya_clock'><br /></span>";
         $LAYOUT_HEADER = '
         <div class="main page_container">
            
             <div class="container-fluid top_section">
                 <div class="row">
                     <div class="col-md-2 top_section_left">
-                        {LOGO}
+                        {LOGO: h=80&class=mx-auto d-block}
                     </div>
-                    <div class="col-md-8 top_section_mid">
+                    <div class="col-md-8 p-2 d-none d-sm-block top_section_mid">
                         {BANNER}
                     </div>
-                    <div class="col-md-2 top_section_right">
-                        
-                       '.$clock_menu.$search_shortcode.'
+                    <div class="col-md-2 p-2 top_section_right">
+                        <div class="m-2">'.$clock_menu.'</div>
+                        <div class="m-2 d-none d-sm-block">'.$search_shortcode.'</div>
                     </div>
                 </div>
             </div>
@@ -195,36 +200,33 @@ class theme_settings
     }
     
     public static function get_linkstyle() {
-    
  
-            $link_settings['main']['dropdown_on'] = " ";
-    
             /* 1.st level ul */
-            $link_settings['main']['prelink'] = '<ul>';
+            $link_settings['main']['prelink'] = '<ul class="nav navbar-nav nav-main ml-auto {NAV_CLASS}">';
             $link_settings['main']['postlink'] = '</ul>';
             /* 1.st level li */ 
-            $link_settings['main']['linkstart'] = '<li>';
-            $link_settings['main']['linkstart_hilite'] = '<li id="menu_current">';  //because bg hover otherwise a active is enough
-            $link_settings['main']['linkstart_sub'] = '<li>';
-            $link_settings['main']['linkstart_sub_hilite'] = '<li class="active">';
+            $link_settings['main']['linkstart'] = '<li class="nav-item">';
+            $link_settings['main']['linkstart_hilite'] = '<li id="menu_current"  class="nav-item active">';  //because bg hover otherwise a active is enough
+            $link_settings['main']['linkstart_sub'] = '<li class="nav-item dropdown">';
+            $link_settings['main']['linkstart_sub_hilite'] = '<li  class="nav-item dropdown active">';
             $link_settings['main']['linkcaret'] = '';
             $link_settings['main']['linkend'] = "</li>";
+            $link_settings['main']['dropdown_on'] = ' data-bs-toggle="dropdown" ';  //alternative hover 
             
             /* 1.st level a */
-            $link_settings['main']['linkclass'] = 'link'; 
-	        $link_settings['main']['linkclass_hilite'] = 'link active';
-            $link_settings['main']['linkclass_sub'] = 'link'; 
-            $link_settings['main']['linkclass_sub_hilite'] = 'link';
+            $link_settings['main']['linkclass'] = 'nav-link'; 
+	        $link_settings['main']['linkclass_hilite'] = 'nav-link active';
+            $link_settings['main']['linkclass_sub'] = 'nav-link dropdown-toggle'; 
+            $link_settings['main']['linkclass_sub_hilite'] = 'nav-link dropdown-toggle active';
  
-
             $link_settings['main_sub']['prelink'] = '<ul class="dropdown-menu">';
             $link_settings['main_sub']['postlink'] = '</ul>';
             
-            $link_settings['main_sub']['linkstart'] = '<li class="linkstart">';
-            $link_settings['main_sub']['linkstart_hilite'] = '<li class="linkstart active">';
+            $link_settings['main_sub']['linkstart'] = '<li class="dropdown-item linkstart link-depth-{NAV_LINK_DEPTH}">';
+            $link_settings['main_sub']['linkstart_hilite'] = '<li class="dropdown-item linkstart active link-depth-{NAV_LINK_DEPTH}">';
             $link_settings['main_sub']['linkstart_sub'] = '<li class="dropend lower">';
             $link_settings['main_sub']['linkstart_sub_hilite'] = '<li class="active dropend lower">';
-            $link_settings['main_sub']['linkcaret'] = '';
+            
             $link_settings['main_sub']['linkend'] = '';
             
             $link_settings['main_sub']['linkclass'] = 'dropdown-item'; 
@@ -243,6 +245,7 @@ class theme_settings
             $link_settings['alt']['linkcaret'] = '';
           
             $link_settings['alt_sub']['linkdivider'] = '<li><hr class="dropdown-divider"></li>';
+  
             return $link_settings;
     }
     
@@ -280,4 +283,66 @@ class theme_settings
         return $style;
 	}
     
+    
+    public function dropdown_navigation() {
+ 
+    $html = '
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+         
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainNavigation">
+          {NAVIGATION}
+         <div class="m-2 d-block d-sm-none">{SEARCH}</div>
+        </div>
+      </div>
+    </nav>
+    ';
+    return $html;
+    }
+    
+    
+    public function offcanvas_navigation() {
+ 
+    $html = '<nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+    
+    <div class="container-fluid">
+               
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" aria-label="Toggle navigation" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarMainNavigation" aria-labelledby="Main Navigation">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="navbarMainNavigationLabel">{LOGO}</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        {NAVIGATION}
+        <div class="m-2 d-block d-sm-none">{SEARCH}</div>
+      </div>
+    </div></nav>';
+    
+    return $html;
+    
+    }
+    
 }
+
+/* search button markup 
+
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+          
+*/

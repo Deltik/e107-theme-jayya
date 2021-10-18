@@ -25,11 +25,11 @@ e107::getSingleton('theme_settings', e_THEME.$sitetheme."/theme_settings.php");
 
 ////// fix for not able to set default skin ////////////////////////////////////
 ////// issue https://github.com/e107inc/e107/issues/4514  6.6.2021 /////////////
-$tmp_frontcss = e107::getPref('themecss');     
+/*$tmp_frontcss = e107::getPref('themecss');     
 if($tmp_frontcss == "style.css") { 
     $tmp_frontcss = "skins/default.css";
     e107::getConfig()->setPref('themecss', $tmp_frontcss)->save(false,true,false);
-}
+}*/
 ////////////////////////////////////////////////////////////////////////////////
  
 /* tmp solution for testing  */
@@ -52,8 +52,8 @@ define("STANDARDS_MODE", TRUE);
 define("CORE_CSS", false);  //copy core e107.css to theme and remove problematic rules 
 
 /* way how to avoid loading libraries by core **********************************/
-/* 
-define("BOOTSTRAP",  5);
+ 
+ define("BOOTSTRAP",  5);
 define("FONTAWESOME",  5);
 
 e107::getParser()->setBootstrap(5);
@@ -64,8 +64,8 @@ function fake() {
   $fake = "font-awesome.min.css";
   $fake = "bootstrap.min.js";
   $fake = "bootstrap.min.css";
-}
-*/
+} 
+ 
 
 
 
@@ -155,7 +155,8 @@ register_icons();
 getInlineCodes();
 
 
-
+$offcanvas_navigation = e107::pref('theme', 'offcanvas_navigation', false);
+ 
 function set_metas()
 {
     e107::meta('viewport', 'width=device-width, initial-scale=1.0');
@@ -163,18 +164,30 @@ function set_metas()
 
 function register_css()
 {
-    //e107::css('theme', 'css/bootstrap.min.css'); - too soon
+    e107::css('theme', 'css/bootstrap.css'); //- too soon
     e107::css('theme', 'css/bootstrap-grid.css');
+    
+    if(e107::pref('theme', 'offcanvas_navigation', false)) {
+      //  e107::css('theme', 'css/bootstrap5-offcanvas-navbar.css');
+    }
  
-    e107::css('theme', 'css/e107.css');   //needed parts of core e107.css
+  //  e107::css('theme', 'css/e107.css');   //needed parts of core e107.css
     e107::css('theme', 'style.css');
 	 
 }
           
 function register_js()
 {
-    //e107::js('theme', 'js/bootstrap.bundle.min.js', 'jquery');
-    e107::js('theme', 'fix.js', 'jquery'); //core fixes done by js
+    e107::js('theme', 'js/bootstrap.bundle.min.js', 'jquery');
+    
+    e107::library("bootstrap5");
+    
+    if(e107::pref('theme', 'offcanvas_navigation', false)) {
+        // e107::js('theme', 'js/bootstrap5-offcanvas-navbar.js', 'jquery' );  
+        
+    }
+    
+    //e107::js('theme', 'fix.js', 'jquery'); //core fixes done by js
 }
            
 function register_fonts()
@@ -221,14 +234,7 @@ function remove_ptags($text = '') // FIXME this is a bug in e107 if this is requ
 
 
 /* the rest of jayya theme.php ************************************************/
-define('PRELINK', '');
-define('POSTLINK', '');
-define('LINKSTART', '');
-define('LINKEND', '');
-define('LINKDISPLAY', 1);
-define('LINKALIGN', 'left');
-
-
+ 
 // [newsstyle]
 
 $sc_style['NEWSIMAGE']['pre'] = "<td style='padding-right: 7px; vertical-align: top'>";
