@@ -20,7 +20,7 @@ $tmp_frontcss = e107::getPref('themecss');
 $tmp_frontcss = str_replace("skins/", "", $tmp_frontcss);
  
 while($filename = readdir($directory)) {
-	if($filename== "." || $filename== ".." || $filename== "images" ) continue;
+	if($filename== "." || $filename== ".." || $filename== "images" || (strpos($filename, ".map") !== false)) continue;
  
 	$skinlist[strtolower($filename)] = "<option value=\"$filename\"".($tmp_frontcss == $filename ? " selected" : "").">$filename</option>";
 }
