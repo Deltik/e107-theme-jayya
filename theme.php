@@ -136,11 +136,7 @@ function set_metas()
 
 function register_css()
 {
- 
- 
-  //  e107::css('theme', 'css/e107.css');   //needed parts of core e107.css
-    e107::css('theme', 'style.css');
-	 
+  
 }
           
 function register_js()
