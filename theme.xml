@@ -12,10 +12,10 @@
 		<image>preview.jpg</image>
 	</screenshots>
 	<stylesheets>
-		<css file="skins/default.css"  name="Default" />
-		<css file="skins/moreblue.css" name="Inspired by Debian MoreBlue Orbit" />
-		<css file="skins/canvas.css"   name="Classic Jayya alternative stylesheet" />
-		<css file="skins/pepper.css"   name="Classic Jayya alternative stylesheet" />
+		<css file="style.css"  name="Default" />
+		<css file="moreblue.css" name="Inspired by Debian MoreBlue Orbit" />
+		<css file="canvas.css"   name="Classic Jayya alternative stylesheet" />
+		<css file="pepper.css"   name="Classic Jayya alternative stylesheet" />
 	</stylesheets>
  	<layouts>
 		<layout name='3_column' title='3 Columns' default='true' />
