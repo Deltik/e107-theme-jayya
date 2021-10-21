@@ -21,15 +21,7 @@ if(!defined('e107_INIT'))
  
 $sitetheme = deftrue('USERTHEME', e107::getPref('sitetheme')); 
 e107::getSingleton('theme_settings', e_THEME.$sitetheme."/theme_settings.php");
-
-
-////// fix for not able to set default skin ////////////////////////////////////
-////// issue https://github.com/e107inc/e107/issues/4514  6.6.2021 /////////////
-/*$tmp_frontcss = e107::getPref('themecss');     
-if($tmp_frontcss == "style.css") { 
-    $tmp_frontcss = "skins/default.css";
-    e107::getConfig()->setPref('themecss', $tmp_frontcss)->save(false,true,false);
-}*/
+ 
 ////////////////////////////////////////////////////////////////////////////////
  
 /* tmp solution for testing  */
@@ -50,25 +42,7 @@ define("THEME_DISCLAIMER", " ");
 define("STANDARDS_MODE", TRUE);
 ////// Your own css fixes ////////////////////////////////////////////////////
 define("CORE_CSS", false);  //copy core e107.css to theme and remove problematic rules 
-
-/* way how to avoid loading libraries by core **********************************/
  
- define("BOOTSTRAP",  5);
-define("FONTAWESOME",  5);
-
-e107::getParser()->setBootstrap(5);
-e107::getParser()->setFontAwesome(5);
-e107::getForm()->_snippets = true;
- 
-function fake() {
-  $fake = "font-awesome.min.css";
-  $fake = "bootstrap.min.js";
-  $fake = "bootstrap.min.css";
-} 
- 
-
-
-
 /*************** HEADERS AND FOOTERS  *****************************************/
 /* way how to change shortcodes on fly, it is not needed here, so just array()*/ 
 $elements = array();
@@ -77,12 +51,10 @@ $elements = array();
 $LAYOUT['_header_'] = '';
 $LAYOUT['_footer_'] = '';
 
-
 /* fill new header and footer */
 $LAYOUT_HEADER =  theme_settings::layout_header($elements);
 $LAYOUT_FOOTER =  theme_settings::layout_footer($elements);
 /************** end of HEADERS AND FOOTERS ***************** ******************/
-
 
 /*************** LAYOUTS ******************************************************/
 $layout = '_default'; 
@@ -164,12 +136,7 @@ function set_metas()
 
 function register_css()
 {
-    e107::css('theme', 'css/bootstrap.css'); //- too soon
-    e107::css('theme', 'css/bootstrap-grid.css');
-    
-    if(e107::pref('theme', 'offcanvas_navigation', false)) {
-      //  e107::css('theme', 'css/bootstrap5-offcanvas-navbar.css');
-    }
+ 
  
   //  e107::css('theme', 'css/e107.css');   //needed parts of core e107.css
     e107::css('theme', 'style.css');
@@ -179,11 +146,10 @@ function register_css()
 function register_js()
 {
     e107::js('theme', 'js/bootstrap.bundle.min.js', 'jquery');
-    
-    e107::library("bootstrap5");
+ 
     
     if(e107::pref('theme', 'offcanvas_navigation', false)) {
-        // e107::js('theme', 'js/bootstrap5-offcanvas-navbar.js', 'jquery' );  
+ 
         
     }
     
