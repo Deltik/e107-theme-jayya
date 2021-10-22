@@ -48,14 +48,14 @@ class theme_settings
                     <div class="col-md-8 p-2 d-none d-sm-block top_section_mid">
                         {BANNER}
                     </div>
-                    <div class="col-md-2 p-2 top_section_right">
+                    <div class="col-md-2 p-2 top_section_right d-none d-sm-block ">
                         <div class="m-2">'.$clock_menu.'</div>
-                        <div class="m-2 d-none d-sm-block">'.$search_shortcode.'</div>
+                        <div class="m-2">'.$search_shortcode.'</div>
                     </div>
                 </div>
             </div>
             <div class="menuBar">
-              <nav class="navbar navbar-expand-lg navbar-light"> 
+              <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
                 <div class="container-fluid">
               '.$navbar_shortcode.'
                 </div>
@@ -327,7 +327,7 @@ class theme_settings
     
     <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarMainNavigation" aria-labelledby="Main Navigation">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="navbarMainNavigationLabel">{LOGO}</h5>
+        <h5 class="offcanvas-title" id="navbarMainNavigationLabel">{SITENAME}</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
