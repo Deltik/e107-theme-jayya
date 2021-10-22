@@ -20,7 +20,7 @@ $NAVIGATION_TEMPLATE['main']['end'] = $link_settings['main']['postlink'];
 $NAVIGATION_TEMPLATE['main']['item'] =  
 $link_settings['main']['linkstart'].'
 		<a class="'.$link_settings['main']['linkclass'].'"  role="button" href="{NAV_LINK_URL}"{NAV_LINK_OPEN} title="{NAV_LINK_DESCRIPTION}">
-		 {NAV_LINK_ICON}{NAV_LINK_NAME} 
+		 '.$link_settings['main']['icon'].'<span>{NAV_LINK_NAME}</span> 
 		</a> 
 '.$link_settings['main']['linkend'];
 
@@ -28,7 +28,7 @@ $link_settings['main']['linkstart'].'
 $NAVIGATION_TEMPLATE['main']['item_active'] =  
 $link_settings['main']['linkstart_hilite'].'
 		<a class="'.$link_settings['main']['linkclass_hilite'].'" role="button"  data-target="#" href="{NAV_LINK_URL}"{NAV_LINK_OPEN} title="{NAV_LINK_DESCRIPTION}">
-		 {NAV_LINK_ICON} {NAV_LINK_NAME}
+		 '.$link_settings['main']['icon'].' <span>{NAV_LINK_NAME}</span>
 		</a>
 '.$link_settings['main']['linkend'];
 
@@ -36,7 +36,7 @@ $link_settings['main']['linkstart_hilite'].'
 $NAVIGATION_TEMPLATE['main']['item_submenu'] =  
 $link_settings['main']['linkstart_sub'].' 
 		<a class="'.$link_settings['main']['linkclass_sub'].'" role="button" '.$link_settings['main']['dropdown_on'].' data-target="#" href="{NAV_LINK_URL}" title="{NAV_LINK_DESCRIPTION}">
-		 {NAV_LINK_ICON}{NAV_LINK_NAME} 
+		 '.$link_settings['main']['icon'].'<span>{NAV_LINK_NAME}</span> 
 		 '.$link_settings['main']['linkcaret'].'
 		</a> 
 		{NAV_LINK_SUB}
@@ -46,7 +46,7 @@ $link_settings['main']['linkstart_sub'].'
 $NAVIGATION_TEMPLATE['main']['item_submenu_active'] =  
 $link_settings['main']['linkstart_sub_hilite'].'
 		<a class="'.$link_settings['main']['linkclass_sub_hilite'].'" role="button" '.$link_settings['main']['dropdown_on'].' data-target="#" href="{NAV_LINK_URL}">
-		 {NAV_LINK_ICON}{NAV_LINK_NAME}
+		 '.$link_settings['main']['icon'].'<span>{NAV_LINK_NAME}</span>
 		 '.$link_settings['main']['linkcaret'].'
 		</a>
 		{NAV_LINK_SUB}
@@ -60,7 +60,7 @@ $NAVIGATION_TEMPLATE['main']['submenu_end']   = $link_settings['main_sub']['post
 // Sub menu Link 
 $NAVIGATION_TEMPLATE['main']['submenu_item'] = 
 $link_settings['main_sub']['linkstart']. '
-    <a class="'.$link_settings['main_sub']['linkclass_hilite'].' href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}{NAV_LINK_NAME}</a>
+    <a class="'.$link_settings['main_sub']['linkclass'].'" href="{NAV_LINK_URL}" {NAV_LINK_OPEN}>{NAV_LINK_ICON}<span>{NAV_LINK_NAME}</span></a>
 </li>
 ';
 
@@ -68,7 +68,7 @@ $link_settings['main_sub']['linkstart']. '
 // Sub menu Link - active state
 $NAVIGATION_TEMPLATE['main']['submenu_item_active'] = 
 $link_settings['main_sub']['linkstart_hilite'] .'
-	<a class="'.$link_settings['main_sub']['linkclass_hilite'].' href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}{NAV_LINK_NAME}</a>
+	<a class="'.$link_settings['main_sub']['linkclass_hilite'].'" href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}<span>{NAV_LINK_NAME}</span></a>
 </li>
 ';
 
@@ -82,14 +82,14 @@ $NAVIGATION_TEMPLATE['main']['submenu_lowerend']   = $link_settings['main_sub_su
 // Sub Menu Link which has a sub menu. 
 $NAVIGATION_TEMPLATE['main']['submenu_loweritem'] = 
 $link_settings['main_sub']['linkstart_sub'].'  
-				<a class="'.$link_settings['main_sub']['linkclass_sub'].'"  href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}{NAV_LINK_NAME}</a>
+				<a class="'.$link_settings['main_sub']['linkclass_sub'].'"  href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}<span>{NAV_LINK_NAME}</span></a>
 				{NAV_LINK_SUB}
 			</li>
 ';
 
 $NAVIGATION_TEMPLATE['main']['submenu_loweritem_active'] = 
 $link_settings['main_sub']['linkstart_sub_hilite'].
-			'<a class="'.$link_settings['main_sub']['linkclass_sub_hilite'].'"  href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}{NAV_LINK_NAME}</a>
+			'<a class="'.$link_settings['main_sub']['linkclass_sub_hilite'].'"  href="{NAV_LINK_URL}"{NAV_LINK_OPEN}>{NAV_LINK_ICON}<span>{NAV_LINK_NAME}</span></a>
 				{NAV_LINK_SUB}
 			</li>
 ';

@@ -28,6 +28,7 @@ e107::getSingleton('theme_settings', e_THEME.$sitetheme."/theme_settings.php");
 $av_skins = array("canvas.css", "default.css", "pepper.css", "moreblue.css");
 if(isset($_GET['skin']) && in_array($_GET['skin'], $av_skins )) {
     $tmp_frontcss = "skins/".$_GET['skin'];
+    if($tmp_frontcss == "defautl.css") $tmp_frontcss = "style.css";
     e107::getConfig()->setPref('themecss', $tmp_frontcss)->save(false,true,false);
     e107::redirect();
 } 

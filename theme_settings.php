@@ -54,8 +54,8 @@ class theme_settings
                     </div>
                 </div>
             </div>
-            <div>
-              <nav class="navbar navbar-expand-lg navbar-light menuBar"> 
+            <div class="menuBar">
+              <nav class="navbar navbar-expand-lg navbar-light"> 
                 <div class="container-fluid">
               '.$navbar_shortcode.'
                 </div>
@@ -204,9 +204,10 @@ class theme_settings
     }
     
     public static function get_linkstyle() {
+            /* menuBar needs to be moved outside nav - container padding + mobile, see header */
  
             /* 1.st level ul */
-            $link_settings['main']['prelink'] = '<ul class="nav navbar-nav nav-main ml-auto ">';
+            $link_settings['main']['prelink'] = '<ul class="nav navbar-nav nav-main ml-auto">';
             $link_settings['main']['postlink'] = '</ul>';
             /* 1.st level li */ 
             $link_settings['main']['linkstart'] = '<li class="nav-item">';
@@ -217,12 +218,26 @@ class theme_settings
             $link_settings['main']['linkend'] = "</li>";
             $link_settings['main']['dropdown_on'] = ' data-bs-toggle="dropdown" ';  //alternative hover 
             
+            
+            
             /* 1.st level a */
             $link_settings['main']['linkclass'] = 'nav-link menuButton'; 
 	        $link_settings['main']['linkclass_hilite'] = 'nav-link active menuButton';
             $link_settings['main']['linkclass_sub'] = 'nav-link dropdown-toggle menuButton'; 
             $link_settings['main']['linkclass_sub_hilite'] = 'nav-link dropdown-toggle active menuButton';
- 
+            
+            if(e107::pref('theme', 'display_menuButton_icon', false)) {  
+                 $icon_path = e107::pref('theme', 'menuButton_icon', "");
+                 if(!empty($icon_path)) {
+                      $icon = e107::getParser()->toIcon($icon_path, array('fw' => true, 'space' => ' ', 'legacy' => "{e_IMAGE}icons/"));
+                      $link_settings['main']['icon'] =  '<span class="menuButton-icon">'.$icon.'</span>'; 
+                 }
+            }
+            else {  
+               $link_settings['main']['icon'] = '<span class="menuButton-icon">{NAV_LINK_ICON}<span>'; 
+            } 
+            
+    
             $link_settings['main_sub']['prelink'] = '<ul class="dropdown-menu menu">';
             $link_settings['main_sub']['postlink'] = '</ul>';
             
