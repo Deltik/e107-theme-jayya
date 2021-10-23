@@ -262,10 +262,46 @@ define('TRACKBACKBEFORESTRING', '&nbsp;|&nbsp;');
 
 //	[tablestyle]
 
-function tablestyle($caption, $text, $mode){
-	global $style;
-	$caption = $caption ? $caption : '&nbsp;';
-	if ((isset($mode['style']) && $mode['style'] == 'button_menu') || (isset($mode) && ($mode == 'menus_config'))) {
+function tablestyle($caption, $text, $mode, $options = array())
+{
+	$style = varset($options['setStyle'], 'default');
+    
+	if (e_DEBUG) {
+    	echo "
+    	<!-- tablestyle initial:  style=" . $style . "  mode=" . $mode . "  UniqueId=" . varset($options['uniqueId']) . " -->
+    	";
+    	echo "\n<!-- \n";
+    
+    	echo json_encode($options, JSON_PRETTY_PRINT);
+    
+    	echo "\n-->\n\n";
+    }
+     
+    /* style switcher */    
+    switch ($mode) {
+    	    case 'wmessage':
+			case 'wm':
+				$style = 'wmessage';
+			break;
+         
+    }    
+    
+     if (e_DEBUG) {
+			echo "
+			<!-- tablestyle after switch:  style=" . $style . "  mode=" . $mode . "  UniqueId=" . varset($options['uniqueId']) . " -->
+			";
+			echo "\n<!-- \n";
+
+			echo json_encode($options, JSON_PRETTY_PRINT);
+
+			echo "\n-->\n\n";
+ 	}
+ 
+    /* specific for this theme, always caption */
+ 	$caption = $caption ? $caption : '&nbsp;';
+    
+    // what is this?
+    if ((isset($mode['style']) && $mode['style'] == 'button_menu') || (isset($mode) && ($mode == 'menus_config'))) {
 		$menu = ' buttons';
 		$bodybreak = '';
 		$but_border = ' button_menu';
@@ -274,27 +310,40 @@ function tablestyle($caption, $text, $mode){
 		$bodybreak = '<br />';
 		$but_border = '';
 	}
+    $menu .= ($style && $style != 'default') ? ' non_default' : '';
 
-	$menu .= ($style && $style != 'default') ? ' non_default' : '';
-
-    if ($style == "none") {
-        echo $text;
+ 	switch($style)
+	{
+            case 'none':
+                echo $text;
+            break;
+            
+            case 'leftmenu':
+                 echo "<div class='cap_border".$but_border."'>";
+                 echo "<div class='left_caption'><div class='bevel'>".$caption."</div></div>";
+                 echo "</div>";
+                if ($text != "") {
+                		echo "<table class='cont'><tr><td class='menu_content ".$menu."'>".$text.$bodybreak."</td></tr></table>";
+                 }
+            break;
+            
+            case 'rightmenu':        
+                echo "<div class='cap_border".$but_border."'>";
+                echo "<div class='right_caption'><div class='bevel'>".$caption."</div></div>";
+                echo "</div>";
+                if ($text != "") {
+                		echo "<table class='cont'><tr><td class='menu_content ".$menu."'>".$text.$bodybreak."</td></tr></table>";
+                 }
+                 
+            default:
+               echo "<div class='cap_border".$but_border."'>";
+               echo "<div class='main_caption'><div class='bevel'>".$caption."</div></div>";
+               	echo "</div>";
+            	if ($text != "") {
+            		echo "<table class='cont'><tr><td class='menu_content ".$menu."'>".$text.$bodybreak."</td></tr></table>";
+            	}
     }
-    else {
-    	echo "<div class='cap_border".$but_border."'>";
-    	if ($style == 'leftmenu') {
-    		echo "<div class='left_caption'><div class='bevel'>".$caption."</div></div>";
-    	}  else if ($style == 'rightmenu') {
-    		echo "<div class='right_caption'><div class='bevel'>".$caption."</div></div>";
-    	} else {
-    		echo "<div class='main_caption'><div class='bevel'>".$caption."</div></div>";
-    	}
-        
-    	echo "</div>";
-    	if ($text != "") {
-    		echo "<table class='cont'><tr><td class='menu_content ".$menu."'>".$text.$bodybreak."</td></tr></table>";
-    	}
-    }
+    
 }
 
 
