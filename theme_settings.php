@@ -45,10 +45,10 @@ class theme_settings
                     <div class="col-md-2 top_section_left">
                         {LOGO: h=80&class=mx-auto d-block}
                     </div>
-                    <div class="col-md-8 p-2 top_section_mid">
+                    <div class="col-md-8 top_section_mid">
                         {SETSTYLE=none}{MENUAREA=3}
                     </div>
-                    <div class="col-md-2 p-2 top_section_right d-none d-sm-block ">
+                    <div class="col-md-2 top_section_right d-none d-sm-block ">
                         <div class="m-2">'.$clock_menu.'</div>
                         <div class="m-2">'.$search_shortcode.'</div>
                     </div>

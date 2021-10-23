@@ -24,5 +24,11 @@ $(document).ready(function() {
   	 $(this).removeClass().addClass('btn btn-default');
   	} ); 
       
-                   
+ 
+    var windowWidth = jQuery(window).width();
+    if(windowWidth <= 1024) { //for iPad & smaller devices
+       jQuery('.accordion-collapse').collapse()
+    }
+ 
+                
 });
