@@ -6,6 +6,7 @@
 /* default jayya variables */
 /* Colors */
 /* layout */
+/* menus */
 /* default bootstrap variables */
 /* put here all bootstrap variables that need to be changed, always with !default */
 /* in skin set value for it without !default */
@@ -8857,6 +8858,27 @@ ul.menu .menuItem .icon {
 }
 
 /* fixed issue BT grid gutter */
+/* default 5px 
+   canvas 5px 7px
+
+*/
+.menu_content {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.menu_content.non_default {
+  background-color: transparent;
+}
+
+.menu_content.buttons {
+  padding: 0px;
+}
+
+ul.menu-list {
+  padding-left: 0px;
+}
+
 /* jayya pars */
 /* what left from old css file */
 /* custom styles for this skin */
@@ -9012,15 +9034,6 @@ ul {
   border-collapse: collapse;
   border-spacing: 0px;
   width: 100%;
-}
-
-.menu_content {
-  padding: 5px 7px;
-  background-color: #fff;
-}
-
-.menu_content.non_default {
-  background-color: transparent;
 }
 
 .news_info {

@@ -13,6 +13,24 @@
 class theme_shortcodes extends e_shortcode
 {
     var $override = true;
+    
+    /* NORMAL THEME SHORTCODES */
+    
+    /* {THEME_BULLET} */
+    public function sc_theme_bullet($parm='') {
+       
+       $icon_path = e107::pref('theme', 'link_bullet_icon', "");
+       if(empty($icon_path)) { 
+         return "";
+       }          
+       $link_bullet = e107::getParser()->toIcon($icon_path, array('fw' => true, 'space' => ' ', 'legacy' => "{e_IMAGE}icons/", "class"=> "bullet" ));
+       $link_bullet_src = e107::getParser()->replaceConstants($icon_path, 'full');
+ 
+       return $parm == 'src' ? $link_bullet_src : $link_bullet;
+    }
+    
+    /*********************************************************************************************/
+    /* SHORTCODES BELLOW ARE SHORTCUTS FOR THEME DEVELOPMENT, they can be removed before release */
      /**
     /* WAY HOW TO DISPLAY MENUS FROM DEFAULT LAYOUT on other layouts
     /* {DEFAULT_MENUAREA=100}.

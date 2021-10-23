@@ -45,8 +45,8 @@ class theme_settings
                     <div class="col-md-2 top_section_left">
                         {LOGO: h=80&class=mx-auto d-block}
                     </div>
-                    <div class="col-md-8 p-2 d-none d-sm-block top_section_mid">
-                        {BANNER}
+                    <div class="col-md-8 p-2 top_section_mid">
+                        {SETSTYLE=none}{MENUAREA=3}
                     </div>
                     <div class="col-md-2 p-2 top_section_right d-none d-sm-block ">
                         <div class="m-2">'.$clock_menu.'</div>
@@ -301,6 +301,15 @@ class theme_settings
   
         return $style;
 	}
+    
+    public static function get_lists_style() {  
+     
+     $style['start'] = '<style> .badge-lists {float: right; } .pl-2 {padding-left: 0.5rem!important } .pl-3 {padding-left: 1rem!important } </style><ul class="menu-list">';
+     $style['item_start'] = '<li>';
+     $style['item_end'] = '</li>';
+     $style['end'] = '</ul>';
+            return $style;
+    }  
     
     
     public function dropdown_navigation() {
