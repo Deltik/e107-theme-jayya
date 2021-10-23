@@ -150,7 +150,7 @@ function register_js()
         
     }
     
-    //e107::js('theme', 'fix.js', 'jquery'); //core fixes done by js
+     e107::js('theme', 'js/fix.js', 'jquery');  
 }
            
 function register_fonts()
@@ -318,7 +318,25 @@ function tablestyle($caption, $text, $mode, $options = array())
                 echo $text;
             break;
             
-            case 'leftmenu':
+            case "leftmenu":
+      		$itemid = varset($options['uniqueId'], time());
+ 
+      		echo '<div class="accordion-item cap_border">';
+            echo '<div class="accordion-header left_caption" id="heading'.$itemid.'"><div class="bevel"> 
+                  		<button class="accordion-button" type="button" type="button" data-bs-toggle="collapse" data-bs-target="#'.$itemid.'" aria-expanded="true" aria-controls="'.$itemid.'">
+      		  '.$caption.'
+      		  </button>
+            </div></div>';
+ 
+        	echo '<div id="'.$itemid.'" class="cont accordion-collapse collapse show" aria-labelledby="heading'.$itemid.'" >
+        		  <div class="accordion-body menu_content '.$menu.'">
+        		  '.$text.'
+        		  </div>
+        		</div>
+        	  </div>';
+        	  break;
+              
+            case 'leftmenux':
                  echo "<div class='cap_border".$but_border."'>";
                  echo "<div class='left_caption'><div class='bevel'>".$caption."</div></div>";
                  echo "</div>";

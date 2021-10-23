@@ -23,9 +23,13 @@ class theme_shortcodes extends e_shortcode
        if(empty($icon_path)) { 
          return "";
        }          
-       $link_bullet = e107::getParser()->toIcon($icon_path, array('fw' => true, 'space' => ' ', 'legacy' => "{e_IMAGE}icons/", "class"=> "bullet" ));
+       //$link_bullet = e107::getParser()->toIcon($icon_path, array('fw' => true, 'space' => ' ', 'legacy' => "{e_IMAGE}icons/", "class"=> "bullet" ));
+       /* reason for this change:
+       Images that do not convey content, are decorative, or contain content that is already conveyed in text are given empty alternative text (alt="")
+       otherwise it fails web accesibility test 
+       */
        $link_bullet_src = e107::getParser()->replaceConstants($icon_path, 'full');
- 
+       $link_bullet = '<img class="bullet" src="'.$link_bullet_src.'" alt="">';
        return $parm == 'src' ? $link_bullet_src : $link_bullet;
     }
     

@@ -8,10 +8,12 @@
 /* layout */
 /* menus */
 /* default bootstrap variables */
+/* #e1e4e8 default */
 /* put here all bootstrap variables that need to be changed, always with !default */
 /* in skin set value for it without !default */
 /* if you have all bt variables on one place, it is easy to comment them if something is not working */
 /* Navigation */
+/* menus */
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -60,16 +62,16 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-body-bg-rgb: 225, 228, 232;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
-  --bs-body-font-size: 0.6875rem;
+  --bs-body-font-family: verdana, tahoma, arial, sans-serif;
+  --bs-body-font-size: 0.75rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-bg: #e1e4e8;
 }
 
 *,
@@ -118,37 +120,42 @@ h6, h5, h4, h3, h2, h1 {
 }
 
 h1 {
-  font-size: calc(1.296875rem + 0.5625vw);
+  font-size: calc(1.3125rem + 0.75vw);
 }
 @media (min-width: 1200px) {
   h1 {
-    font-size: 1.71875rem;
+    font-size: 1.875rem;
   }
 }
 
 h2 {
-  font-size: calc(1.2625rem + 0.15vw);
+  font-size: calc(1.275rem + 0.3vw);
 }
 @media (min-width: 1200px) {
   h2 {
-    font-size: 1.375rem;
+    font-size: 1.5rem;
   }
 }
 
 h3 {
-  font-size: 1.203125rem;
+  font-size: calc(1.25625rem + 0.075vw);
+}
+@media (min-width: 1200px) {
+  h3 {
+    font-size: 1.3125rem;
+  }
 }
 
 h4 {
-  font-size: 1.03125rem;
+  font-size: 1.125rem;
 }
 
 h5 {
-  font-size: 0.859375rem;
+  font-size: 0.9375rem;
 }
 
 h6 {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
 }
 
 p {
@@ -2386,7 +2393,7 @@ progress {
   display: block;
   padding: 1px 5px;
   margin-bottom: 0;
-  font-size: 0.6015625rem;
+  font-size: 0.65625rem;
   color: #6c757d;
   white-space: nowrap;
 }
@@ -2482,8 +2489,8 @@ progress {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #fff;
-  border-color: #dee2e6 #dee2e6 #fff;
+  background-color: #e1e4e8;
+  border-color: #dee2e6 #dee2e6 #e1e4e8;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -2570,10 +2577,10 @@ progress {
           justify-content: space-between;
 }
 .navbar-brand {
-  padding-top: 0.37109375rem;
-  padding-bottom: 0.37109375rem;
+  padding-top: 0.359375rem;
+  padding-bottom: 0.359375rem;
   margin-right: 1rem;
-  font-size: 0.859375rem;
+  font-size: 0.9375rem;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -2615,7 +2622,7 @@ progress {
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-size: 0.859375rem;
+  font-size: 0.9375rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
@@ -3146,8 +3153,133 @@ progress {
 }
 
 /*
-@import "bootstrap/card";
-@import "bootstrap/accordion";
+@import "bootstrap/card"; */
+.accordion-button {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 0px 0px;
+  font-size: 0.75rem;
+  color: #212529;
+  text-align: left;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow-anchor: none;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .accordion-button {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+.accordion-button:not(.collapsed) {
+  color: inherit;
+  background-color: transparent;
+  -webkit-box-shadow: inset 0 0px 0 rgba(0, 0, 0, 0.125);
+          box-shadow: inset 0 0px 0 rgba(0, 0, 0, 0.125);
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='inherit'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+.accordion-button::after {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  content: "";
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 12px;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .accordion-button::after {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+.accordion-button:hover {
+  z-index: 2;
+}
+.accordion-button:focus {
+  z-index: 3;
+  border-color: #86b7fe;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.accordion-header {
+  margin-bottom: 0;
+}
+
+.accordion-item {
+  background-color: transparent;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+}
+.accordion-item:first-of-type {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.accordion-item:first-of-type .accordion-button {
+  border-top-left-radius: calc(0.25rem - 0px);
+  border-top-right-radius: calc(0.25rem - 0px);
+}
+.accordion-item:not(:first-of-type) {
+  border-top: 0;
+}
+.accordion-item:last-of-type {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-bottom-right-radius: calc(0.25rem - 0px);
+  border-bottom-left-radius: calc(0.25rem - 0px);
+}
+.accordion-item:last-of-type .accordion-collapse {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.accordion-body {
+  padding: 1rem 1.25rem;
+}
+
+.accordion-flush .accordion-collapse {
+  border-width: 0;
+}
+.accordion-flush .accordion-item {
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+.accordion-flush .accordion-item:first-child {
+  border-top: 0;
+}
+.accordion-flush .accordion-item:last-child {
+  border-bottom: 0;
+}
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: 0;
+}
+
+/*
 @import "bootstrap/breadcrumb";
 @import "bootstrap/pagination";
 @import "bootstrap/badge";
@@ -4587,27 +4719,27 @@ progress {
 }
 
 .fs-1 {
-  font-size: calc(1.296875rem + 0.5625vw) !important;
+  font-size: calc(1.3125rem + 0.75vw) !important;
 }
 
 .fs-2 {
-  font-size: calc(1.2625rem + 0.15vw) !important;
+  font-size: calc(1.275rem + 0.3vw) !important;
 }
 
 .fs-3 {
-  font-size: 1.203125rem !important;
+  font-size: calc(1.25625rem + 0.075vw) !important;
 }
 
 .fs-4 {
-  font-size: 1.03125rem !important;
+  font-size: 1.125rem !important;
 }
 
 .fs-5 {
-  font-size: 0.859375rem !important;
+  font-size: 0.9375rem !important;
 }
 
 .fs-6 {
-  font-size: 0.6875rem !important;
+  font-size: 0.75rem !important;
 }
 
 .fst-italic {
@@ -8621,11 +8753,15 @@ progress {
 }
 @media (min-width: 1200px) {
   .fs-1 {
-    font-size: 1.71875rem !important;
+    font-size: 1.875rem !important;
   }
 
   .fs-2 {
-    font-size: 1.375rem !important;
+    font-size: 1.5rem !important;
+  }
+
+  .fs-3 {
+    font-size: 1.3125rem !important;
   }
 }
 @media print {
@@ -8877,6 +9013,10 @@ ul.menu .menuItem .icon {
 
 ul.menu-list {
   padding-left: 0px;
+}
+
+.accordion-button {
+  width: auto;
 }
 
 /* jayya pars */

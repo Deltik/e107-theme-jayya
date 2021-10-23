@@ -105,11 +105,11 @@ class theme_settings
           ';
             
           $layout_sidebar['left'] = '
-             <table class="menus_container"><tr><td>
+            <div class="accordion" id="left-menu"> 
             {SETSTYLE=leftmenu}
             {MENU=1}
-            </td></tr>
-            </table>
+            </div>
+           
          ';   
     
          return $layout_sidebar[$type];
@@ -229,7 +229,13 @@ class theme_settings
             if(e107::pref('theme', 'display_menuButton_icon', false)) {  
                  $icon_path = e107::pref('theme', 'menuButton_icon', "");
                  if(!empty($icon_path)) {
-                      $icon = e107::getParser()->toIcon($icon_path, array('fw' => true, 'space' => ' ', 'legacy' => "{e_IMAGE}icons/"));
+                       //$icon = e107::getParser()->toIcon($icon_path, array('fw' => true, 'space' => ' ', 'legacy' => "{e_IMAGE}icons/"));
+                       /* reason for this change:
+                       Images that do not convey content, are decorative, or contain content that is already conveyed in text are given empty alternative text (alt="")
+                       otherwise it fails web accesibility test 
+                       */
+                      $icon_src = e107::getParser()->replaceConstants($icon_path, 'full');
+                      $icon = '<img class="icon" src="'.$icon_src.'" alt="">';
                       $link_settings['main']['icon'] =  '<span class="menuButton-icon">'.$icon.'</span>'; 
                  }
             }
@@ -334,7 +340,7 @@ class theme_settings
         <span class="navbar-toggler-icon"></span>
     </button>
     
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarMainNavigation" aria-labelledby="Main Navigation">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarMainNavigation" aria-labelledby="navbarMainNavigationLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="navbarMainNavigationLabel">{SITENAME}</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
