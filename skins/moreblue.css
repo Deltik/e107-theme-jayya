@@ -9030,6 +9030,10 @@ li.nav-item.menu a:hover {
   border-color: #a5a5a5 #fff #fff #a5a5a5 !important;
 }
 
+.accordion-item:not(:first-of-type) {
+  border-top: 1px solid #878787;
+}
+
 /* what left from old css file */
 .smalltext, .smallblacktext, .tbox, .button, .button:hover, .nextprev, .helpbox {
   font: normal 9px verdana, tahoma, arial, sans-serif;
