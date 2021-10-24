@@ -60,7 +60,7 @@ $LAYOUT['_header_'] = '
     <div class="container-fluid top_section">
         <div class="row">
             <div class="col-md-2 top_section_left">
-                {LOGO: h=80&class=mx-auto d-block}
+                <a href="{SITEURL}" title="{SITENAME}">{LOGO: h=80}</a>
             </div>
             <div class="col-md-8 top_section_mid">
                 {SETSTYLE=none}{MENUAREA=3}
