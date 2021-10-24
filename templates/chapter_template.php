@@ -123,7 +123,7 @@ $CHAPTER_TEMPLATE['panel']['listPages']['start'] 				= "<!-- Chapter Template: P
 $CHAPTER_TEMPLATE['panel']['listPages']['item'] 				= "<div class='section'>{CPAGEMENU}</div>";
 $CHAPTER_TEMPLATE['panel']['listPages']['end'] 					= "</div>";	
 
-
+$CHAPTER_TEMPLATE['panel']['listPages'] = $CHAPTER_TEMPLATE['default']['listPages'];
 
 $CHAPTER_TEMPLATE['grid']['listPages']['caption']				= "{CHAPTER_NAME}";
 $CHAPTER_TEMPLATE['grid']['listPages']['start']				    = "<!-- Chapter Template: Grid listPages -->{SETIMAGE: w=450}{CHAPTER_BREADCRUMB}<div class='chapter-pages-list'><div class='row'>";
