@@ -1,5 +1,6 @@
 /* default skin */
 /* skin version of jayya variables or put it here */
+/* core */
 /* Colors */
 /* navigation */
 /* layout */
@@ -8,7 +9,7 @@
 /* layout */
 /* menus */
 /* default bootstrap variables */
-/* #e1e4e8 default */
+/* #e1e4e8, canvas,  default #fdfdfd; pepper #d3def0 moreblue*/
 /* put here all bootstrap variables that need to be changed, always with !default */
 /* in skin set value for it without !default */
 /* if you have all bt variables on one place, it is easy to comment them if something is not working */
@@ -8813,16 +8814,11 @@ progress {
 /* just parts of BT, if something fails, load full bootstrap */
 .page_container {
   width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0px;
 }
 
 .top_section, .main_section {
   width: 100%;
   background-color: #fff;
-  border-bottom: none;
-  border-collapse: collapse;
-  border-spacing: 0px;
 }
 
 .top_section_left {
@@ -8837,7 +8833,6 @@ progress {
 .top_section_mid {
   vertical-align: bottom;
   text-align: right;
-  padding: 5px;
   border-left: none;
   background-image: url(images/classic/top_mid_back.jpg);
   background-repeat: no-repeat;
@@ -9035,25 +9030,6 @@ div.menuBar {
 }
 
 /* what left from old css file */
-/* info: alternative stylesheet */
-/* Core Classes */
-body {
-  background-color: #e1e4e8;
-}
-
-body, td {
-  margin: 0px;
-  padding: 0px;
-  text-align: left;
-  color: #000;
-}
-
-body, td, .indent, .defaulttext, .caption, .captiontext, .bodytable, .mediumtext,
-.forumheader, .forumheader2, .forumheader3, .forumheader4, .forumheader5, .fcaption, .finfobar {
-  font: normal 11px verdana, tahoma, arial, sans-serif;
-  color: #000;
-}
-
 .fcaption {
   font: bold 11px verdana, tahoma, arial, sans-serif;
   color: #566782;

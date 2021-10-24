@@ -1,11 +1,12 @@
 /* default skin */
 /* skin version of jayya variables */
+/* core */
 /* default jayya variables */
 /* Colors */
 /* layout */
 /* menus */
 /* default bootstrap variables */
-/* #e1e4e8 default */
+/* #e1e4e8, canvas,  default #fdfdfd; pepper #d3def0 moreblue*/
 /* put here all bootstrap variables that need to be changed, always with !default */
 /* in skin set value for it without !default */
 /* if you have all bt variables on one place, it is easy to comment them if something is not working */
@@ -59,7 +60,7 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg-rgb: 225, 228, 232;
+  --bs-body-bg-rgb: 211, 222, 240;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
@@ -68,7 +69,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #e1e4e8;
+  --bs-body-bg: #d3def0;
 }
 
 *,
@@ -2486,8 +2487,8 @@ progress {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #e1e4e8;
-  border-color: #dee2e6 #dee2e6 #e1e4e8;
+  background-color: #d3def0;
+  border-color: #dee2e6 #dee2e6 #d3def0;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -8810,16 +8811,11 @@ progress {
 /* just parts of BT */
 .page_container {
   width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0px;
 }
 
 .top_section, .main_section {
   width: 100%;
   background-color: #fff;
-  border-bottom: 1px solid #878787;
-  border-collapse: collapse;
-  border-spacing: 0px;
 }
 
 .top_section_left {
@@ -8834,7 +8830,6 @@ progress {
 .top_section_mid {
   vertical-align: bottom;
   text-align: right;
-  padding: 3px 5px 3px 0px;
   border-left: none;
   background-image: url(images/moreblue/top_mid_back.jpg);
   background-repeat: no-repeat;
@@ -8844,7 +8839,7 @@ progress {
 .top_section_right {
   vertical-align: middle;
   text-align: center;
-  border-left: 1px solid #878787;
+  border-left: none;
   background-image: url(images/moreblue/top_right_back.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -9020,6 +9015,7 @@ ul.menu-list {
 /* what left from old css file */
 /* custom styles for this skin */
 /* put here all rules checked from original css file if they are too difficult to use in jayya folder */
+/* core */
 .left_menu, .right_menu {
   vertical-align: top;
   background-image: url(images/moreblue/s_body.png);
@@ -9034,24 +9030,6 @@ ul.menu-list {
 }
 
 /* what left from old css file */
-/* Core Classes */
-body {
-  background-color: #d3def0;
-}
-
-body, td {
-  margin: 0px;
-  padding: 0px;
-  text-align: left;
-  color: #000;
-}
-
-body, td, .indent, .defaulttext, .caption, .captiontext, .bodytable, .mediumtext,
-.forumheader, .forumheader2, .forumheader3, .forumheader4, .forumheader5, .fcaption, .finfobar {
-  font: normal 10px verdana, tahoma, arial, sans-serif;
-  color: #000;
-}
-
 .smalltext, .smallblacktext, .tbox, .button, .button:hover, .nextprev, .helpbox {
   font: normal 9px verdana, tahoma, arial, sans-serif;
   color: #000;

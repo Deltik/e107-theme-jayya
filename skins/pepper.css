@@ -6,7 +6,7 @@
 /* layout */
 /* menus */
 /* default bootstrap variables */
-/* #e1e4e8 default */
+/* #e1e4e8, canvas,  default #fdfdfd; pepper #d3def0 moreblue*/
 /* put here all bootstrap variables that need to be changed, always with !default */
 /* in skin set value for it without !default */
 /* if you have all bt variables on one place, it is easy to comment them if something is not working */
@@ -8811,16 +8811,11 @@ progress {
 /* just parts of BT */
 .page_container {
   width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0px;
 }
 
 .top_section, .main_section {
   width: 100%;
   background-color: #fff;
-  border-bottom: 1px solid #000;
-  border-collapse: collapse;
-  border-spacing: 0px;
 }
 
 .top_section_left {
@@ -8835,7 +8830,6 @@ progress {
 .top_section_mid {
   vertical-align: bottom;
   text-align: right;
-  padding: 3px 5px 3px 0px;
   border-left: 1px solid #000;
   background-image: url(images/classic/top_mid_back_pepper.jpg);
   background-repeat: no-repeat;
@@ -9021,6 +9015,7 @@ ul.menu-list {
 /* what left from old css file */
 /* custom styles for this skin */
 /* put here all rules checked from original css file if they are too difficult to use in jayya folder */
+/* core */
 .left_menu, .right_menu {
   vertical-align: top;
   background-color: #F9f7f7;
@@ -9032,24 +9027,6 @@ nav.menuBar {
 
 /* what left from old css file */
 /* info: alternative stylesheet */
-/* Core Classes */
-body {
-  background-color: #fdfdfd;
-}
-
-body, td {
-  margin: 0px;
-  padding: 0px;
-  text-align: left;
-  color: #000;
-}
-
-body, td, .indent, .defaulttext, .caption, .captiontext, .bodytable, .mediumtext,
-.forumheader, .forumheader2, .forumheader3, .forumheader4, .forumheader5, .fcaption, .finfobar {
-  font: normal 11px arial, verdana, tahoma, sans-serif;
-  color: #000;
-}
-
 .smalltext, .smallblacktext, .tbox, .button, .button:hover, .nextprev, .helpbox {
   font: normal 10px arial, verdana, tahoma, sans-serif;
   color: #000;

@@ -8,7 +8,7 @@
 /* layout */
 /* menus */
 /* default bootstrap variables */
-/* #e1e4e8 default */
+/* #e1e4e8, canvas,  default #fdfdfd; pepper #d3def0 moreblue*/
 /* put here all bootstrap variables that need to be changed, always with !default */
 /* in skin set value for it without !default */
 /* if you have all bt variables on one place, it is easy to comment them if something is not working */
@@ -8813,16 +8813,11 @@ progress {
 /* just parts of BT */
 .page_container {
   width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0px;
 }
 
 .top_section, .main_section {
   width: 100%;
   background-color: #fff;
-  border-bottom: 1px solid #878787;
-  border-collapse: collapse;
-  border-spacing: 0px;
 }
 
 .top_section_left {
@@ -8837,7 +8832,6 @@ progress {
 .top_section_mid {
   vertical-align: bottom;
   text-align: right;
-  padding: 3px 5px 3px 0px;
   border-left: none;
   background-image: url(images/classic/top_mid_back.jpg);
   background-repeat: no-repeat;
@@ -9037,10 +9031,6 @@ div.menuBar {
 
 /* what left from old css file not touched */
 /* Core Classes */
-body {
-  background-color: #e1e4e8;
-}
-
 .smalltext, .smallblacktext, .tbox, .button, .button:hover, .nextprev, .helpbox {
   font: normal 9px verdana, tahoma, arial, sans-serif;
   color: #000;
