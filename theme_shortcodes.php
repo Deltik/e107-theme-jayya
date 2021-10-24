@@ -17,7 +17,7 @@ class theme_shortcodes extends e_shortcode
     /* NORMAL THEME SHORTCODES */
     
     /* {THEME_BULLET} */
-    public function sc_theme_bullet($parm='') {
+    public static function sc_theme_bullet($parm='') {
        
        $icon_path = e107::pref('theme', 'link_bullet_icon', "");
        if(empty($icon_path)) { 
