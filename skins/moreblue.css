@@ -2160,10 +2160,10 @@ progress {
   color: #212529;
   text-align: left;
   list-style: none;
-  background-color: #FCFDFF;
+  background-color: #d3def0;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0px;
+  border-radius: 0px 8px 8px 8px;
 }
 .dropdown-menu[data-bs-popper] {
   top: 100%;
@@ -2370,7 +2370,7 @@ progress {
 }
 .dropdown-item:hover, .dropdown-item:focus {
   color: black;
-  background-color: #F5F5F7;
+  background-color: #F2F4FF;
 }
 .dropdown-item.active, .dropdown-item:active {
   color: #000;
@@ -8922,16 +8922,6 @@ progress {
   padding: 2px 4px 2px 6px;
 }
 
-.menuButton {
-  background-color: transparent;
-  border: 1px solid;
-  border-color: transparent;
-  cursor: default;
-  text-decoration: none;
-  z-index: 100;
-  border-radius: 0px;
-}
-
 li.nav-item a:hover {
   background-color: transparent;
   border-color: #fff #a5a5a5 #a5a5a5 #fff !important;
@@ -9026,6 +9016,18 @@ ul.menu-list {
 .menuBar {
   background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(#D3DEF0), to(white));
   background: linear-gradient(white, #D3DEF0, white);
+}
+
+li .nav-link:hover {
+  background-color: transparent !important;
+  border-color: #a5a5a5 #fff #fff #a5a5a5 !important;
+  border: 1px solid;
+  border-radius: 8px 8px 0px 0px;
+}
+
+li.nav-item.menu a:hover {
+  background-color: #d3def0 !important;
+  border-color: #a5a5a5 #fff #fff #a5a5a5 !important;
 }
 
 /* what left from old css file */
