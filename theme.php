@@ -177,7 +177,7 @@ function set_metas()
 
 function register_css()
 {
-  
+  e107::css('theme', 'css/style.css');  
 }
           
 function register_js()
