@@ -20,12 +20,9 @@ if(class_exists('theme_shortcodes')) {
 }
  
 // category menu
-$NEWS_MENU_TEMPLATE['category']['start']       = '<ul class="list-group news-menu-category">';
-$NEWS_MENU_TEMPLATE['category']['end']         = '</ul>';
-$NEWS_MENU_TEMPLATE['category']['item']        = '
-	<li class="list-group-item d-flex justify-content-between align-items-center"><a class="e-menu-link newscats{ACTIVE}" href="{NEWS_CATEGORY_URL}">{NEWS_CATEGORY_TITLE}</a><span class="badge bg-primary rounded-pill">{NEWS_CATEGORY_NEWS_COUNT=raw}</span></li>
-';
-
+$NEWS_MENU_TEMPLATE['category']['start']       = $lists_style['start'];
+$NEWS_MENU_TEMPLATE['category']['end']         = $lists_style['end'];
+$NEWS_MENU_TEMPLATE['category']['item']        = $lists_style['item_start'].'<a class="e-menu-link newscats{ACTIVE}" href="{NEWS_CATEGORY_URL}">'.$bullet.' {NEWS_CATEGORY_TITLE}</a><span class="badge-lists">[{NEWS_CATEGORY_NEWS_COUNT=raw}]</span>'.$lists_style['item_end'];
  
 // @deprecated months menu - use news archive instead.
 $NEWS_MENU_TEMPLATE['months']['start']       = $lists_style['start'];
