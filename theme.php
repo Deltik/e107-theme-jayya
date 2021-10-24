@@ -43,57 +43,97 @@ define("THEME_DISCLAIMER", " ");
 define("STANDARDS_MODE", TRUE);
 ////// Your own css fixes ////////////////////////////////////////////////////
 define("CORE_CSS", false);  //copy core e107.css to theme and remove problematic rules 
+
+/*************** LAYOUTS ******************************************************/
+$layout = '_default'; 
  
 /*************** HEADERS AND FOOTERS  *****************************************/
 /* way how to change shortcodes on fly, it is not needed here, so just array()*/ 
 $elements = array();
  
-/* we need 2 headers */
-$LAYOUT['_header_'] = '';
-$LAYOUT['_footer_'] = '';
+$clock_menu = "{CUSTOM=clock}<span class='jayya_clock'><br /></span>";
+$search_menu = "{SEARCH}";
+//$search_menu = "{CUSTOM=search+default}";
 
-/* fill new header and footer */
-$LAYOUT_HEADER =  theme_settings::layout_header($elements);
-$LAYOUT_FOOTER =  theme_settings::layout_footer($elements);
+$LAYOUT['_header_'] = '
+<div class="main page_container">  
+    <div class="container-fluid top_section">
+        <div class="row">
+            <div class="col-md-2 top_section_left">
+                {LOGO: h=80&class=mx-auto d-block}
+            </div>
+            <div class="col-md-8 top_section_mid">
+                {SETSTYLE=none}{MENUAREA=3}
+            </div>
+            <div class="col-md-2 top_section_right d-none d-sm-block ">
+                <div class="m-2">'.$clock_menu.'</div>
+                <div class="m-2">'.$search_menu .'</div>
+            </div>
+        </div>
+    </div>
+    <div class="menuBar">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+        <div class="container-fluid">
+          {THEME_NAVIGATION}
+        </div>
+      </nav>
+    </div>
+ ';
+         
+$LAYOUT['_footer_'] = '
+<div class="container-fluid" style="text-align:center">
+  <br />
+  {SITEDISCLAIMER}{SETSTYLE=none} {THEME_MENU: path=jayya3/skinchange}
+  <br /><br />
+  </div>
+</div>';
+
 /************** end of HEADERS AND FOOTERS ***************** ******************/
 
-/*************** LAYOUTS ******************************************************/
-$layout = '_default'; 
  
 ///////////////////////DEFAULT 3 COLUMN LAYOUT ////////////////////////////////
 /* Note: use SETSTYLE for sidebars in settings class */ 
 /* Note: THEME_LAYOUT is not available */
 
-$LAYOUT['3_column'] = $LAYOUT_HEADER.'
+$LAYOUT['3_column'] =  '
     {ALERTS}
     <div class="container-fluid main_section">
       <div class="row">
         <div class="col-md-2 left_menu">
-            '.theme_settings::layout_sidebar('left').'
+            <div class="accordion" id="left-menu"> 
+            {SETSTYLE=leftmenu}
+            {MENU=1}
+            </div>
         </div>
         <div class="col-md-8 default_menu">
-          {SETSTYLE=default}
-          {FEATUREBOX|default}
-          {FEATUREBOX|dynamic}
-          {WMESSAGE}
-          {---}
-          <br />
-          {FEATUREBOX|tabs=notablestyle}
+            {SETSTYLE=default}
+            {FEATUREBOX|default}
+            {FEATUREBOX|dynamic}
+            {WMESSAGE}
+            {---}
+            <br />
+            {FEATUREBOX|tabs=notablestyle}
         </div>
         <div class="col-md-2 right_menu">
-            '.theme_settings::layout_sidebar('right').'
+            <div class="accordion" id="right-menu"> 
+            {SETSTYLE=rightmenu}
+            {MENU=2}
+            </div>
         </div>
       </div>  
     </div>
-'.$LAYOUT_FOOTER;
+' ;
  
  
-$LAYOUT['2_column'] = $LAYOUT_HEADER.'
+$LAYOUT['2_column'] =  '
   {ALERTS} 
   <div class="container-fluid main_section">
       <div class="row">
         <div class="col-md-2 left_menu">
-            '.theme_settings::layout_sidebar('left').'
+            <div class="accordion" id="left-menu"> 
+            {SETSTYLE=leftmenu}
+            {MENU=1}
+            </div>
         </div>
         <div class="col-md-10 default_menu">
           {SETSTYLE=default}
@@ -106,7 +146,7 @@ $LAYOUT['2_column'] = $LAYOUT_HEADER.'
         </div>
       </div>  
     </div>
- '.$LAYOUT_FOOTER;
+ ' ;
  
  
 /* already prepared for theme class as methods, so let it this way */ 
@@ -179,23 +219,7 @@ function getInlineCodes()
 	}
     */
 }
-
-/**
- * @param string $text
- * @return string without p tags added always with bbcodes
- * note: this solves W3C validation issue and CSS style problems
- * use this carefully, mainly for custom menus, let decision on theme developers
- */
-
-function remove_ptags($text = '') // FIXME this is a bug in e107 if this is required.
-{
-	$text = str_replace(array("<!-- bbcode-html-start --><p>", "</p><!-- bbcode-html-end -->"), "", $text);
-
-	return $text;
-}
-
-
-
+ 
 /* the rest of jayya theme.php ************************************************/
  
 // [newsstyle]
@@ -319,9 +343,12 @@ function tablestyle($caption, $text, $mode, $options = array())
             break;
             
             case "leftmenu":
-      		$itemid = varset($options['uniqueId'], time());
+            case "rightmenu":
+            
+            /* if the same menu is used more times */
+      		$itemid =  $options['uniqueId'].rand() ;
  
-      		echo '<div class="accordion-item cap_border">';
+      		echo '<div class="accordion-item cap_border'.$but_border.'">';
             echo '<div class="accordion-header left_caption" id="heading'.$itemid.'"><div class="bevel"> 
                   		<button class="accordion-button" type="button" type="button" data-bs-toggle="collapse" data-bs-target="#'.$itemid.'" aria-expanded="true" aria-controls="'.$itemid.'">
       		  '.$caption.'
@@ -330,29 +357,12 @@ function tablestyle($caption, $text, $mode, $options = array())
  
         	echo '<div id="'.$itemid.'" class="cont accordion-collapse collapse show" aria-labelledby="heading'.$itemid.'" >
         		  <div class="accordion-body menu_content '.$menu.'">
-        		  '.$text.'
+        		  '.$text.$bodybreak.'
         		  </div>
         		</div>
         	  </div>';
         	  break;
-              
-            case 'leftmenux':
-                 echo "<div class='cap_border".$but_border."'>";
-                 echo "<div class='left_caption'><div class='bevel'>".$caption."</div></div>";
-                 echo "</div>";
-                if ($text != "") {
-                		echo "<table class='cont'><tr><td class='menu_content ".$menu."'>".$text.$bodybreak."</td></tr></table>";
-                 }
-            break;
-            
-            case 'rightmenu':        
-                echo "<div class='cap_border".$but_border."'>";
-                echo "<div class='right_caption'><div class='bevel'>".$caption."</div></div>";
-                echo "</div>";
-                if ($text != "") {
-                		echo "<table class='cont'><tr><td class='menu_content ".$menu."'>".$text.$bodybreak."</td></tr></table>";
-                 }
-                 
+          
             default:
                echo "<div class='cap_border".$but_border."'>";
                echo "<div class='main_caption'><div class='bevel'>".$caption."</div></div>";

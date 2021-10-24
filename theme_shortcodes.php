@@ -33,6 +33,56 @@ class theme_shortcodes extends e_shortcode
        return $parm == 'src' ? $link_bullet_src : $link_bullet;
     }
     
+    /* {THEME_NAVIGATION} */
+    public function sc_theme_navigation() 
+    {
+         if(e107::pref('theme', 'offcanvas_navigation', false)) {        
+           $text = $this->offcanvas_navigation();
+         }
+         else {
+            $text = $this->dropdown_navigation();
+         }
+         $text = e107::getParser()->parseTemplate($text, true);
+         return $text;
+    }
+    
+    public function dropdown_navigation() {
+ 
+      $html = '
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarMainNavigation">
+            {NAVIGATION}
+           <div class="m-2 d-block d-sm-none">{SEARCH}</div>
+          </div>
+      ';
+      return $html;
+    }
+    
+    
+    public function offcanvas_navigation() {
+ 
+      $html = '             
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" aria-label="Toggle navigation" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarMainNavigation" aria-labelledby="navbarMainNavigationLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="navbarMainNavigationLabel">{SITENAME}</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          {NAVIGATION}
+          <div class="m-2 d-block d-sm-none">{SEARCH}</div>
+        </div>
+      </div> ';
+    
+    return $html;
+    
+    }
+    
     /*********************************************************************************************/
     /* SHORTCODES BELLOW ARE SHORTCUTS FOR THEME DEVELOPMENT, they can be removed before release */
      /**
