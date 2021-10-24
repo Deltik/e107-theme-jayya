@@ -1,3 +1,16 @@
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
+
+@media (min-width: 992px) { 
+    .dropdown:hover .dropdown-menu  {
+        display: block;
+        margin-top: 0px;
+    }
+ }
+
+
+@media (max-width: 991.98px) { 
+    .dropdown:hover .dropdown-menu.show {
+        display: block;
+        margin-top: 0px;
+    }
+ }
+

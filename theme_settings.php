@@ -104,7 +104,7 @@ class theme_settings
             $link_settings['main']['linkstart_sub_hilite'] = '<li  class="nav-item dropdown active menu">';
             $link_settings['main']['linkcaret'] = '';
             $link_settings['main']['linkend'] = "</li>";
-            $link_settings['main']['dropdown_on'] = ' data-bs-toggle="hover" ';  //alternative hover 
+            $link_settings['main']['dropdown_on'] = ' data-bs-toggle="dropdown" ';  //alternative hover 
             
             
             
