@@ -85,7 +85,6 @@ $LAYOUT['_footer_'] = '
 /* Note: THEME_LAYOUT is not available */
 
 $LAYOUT['3_column'] =  '
-    {ALERTS}
     <div class="container-fluid main_section">
       <div class="row">
         <div class="col-md-2 left_menu">
@@ -95,6 +94,7 @@ $LAYOUT['3_column'] =  '
             </div>
         </div>
         <div class="col-md-8 default_menu">
+            {ALERTS}
             {SETSTYLE=default}
             {FEATUREBOX|default}
             {FEATUREBOX|dynamic}
@@ -115,7 +115,6 @@ $LAYOUT['3_column'] =  '
  
  
 $LAYOUT['2_column'] =  '
-  {ALERTS} 
   <div class="container-fluid main_section">
       <div class="row">
         <div class="col-md-2 left_menu">
@@ -125,6 +124,7 @@ $LAYOUT['2_column'] =  '
             </div>
         </div>
         <div class="col-md-10 default_menu">
+          {ALERTS}
           {SETSTYLE=default}
           {FEATUREBOX|default}
           {FEATUREBOX|dynamic}
