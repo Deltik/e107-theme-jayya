@@ -31,8 +31,8 @@ define("THEME_LEGACY",false); //warning it is ignored somewhere
 define("THEME_DISCLAIMER", " ");
 define("STANDARDS_MODE", TRUE);
 ////// Your own css fixes ////////////////////////////////////////////////////
-define("CORE_CSS", false);  //copy core e107.css to theme and remove problematic rules 
-
+//define("CORE_CSS", false);  //copy core e107.css to theme and remove problematic rules 
+ 
 /*************** LAYOUTS ******************************************************/
 $layout = '_default'; 
  
@@ -40,10 +40,6 @@ $layout = '_default';
 /* way how to change shortcodes on fly, it is not needed here, so just array()*/ 
 $elements = array();
  
-$clock_menux = "{CUSTOM=clock}<span class='jayya_clock'><br /></span>";
-$search_menu = "{SEARCH}";
-//$search_menu = "{CUSTOM=search+default}";
-
 $LAYOUT['_header_'] = '
 <div class="main page_container">  
     <div class="container-fluid top_section">
@@ -54,9 +50,8 @@ $LAYOUT['_header_'] = '
             <div class="col-md-8 top_section_mid">
                 {SETSTYLE=none}{MENUAREA=3}
             </div>
-            <div class="col-md-2 top_section_right d-none d-sm-block ">
-                <div class="m-2">'.$clock_menu.'</div>
-                <div class="m-2">'.$search_menu .'</div>
+            <div class="col-md-2 p-2 top_section_right d-none d-sm-block">
+                <div class="my-2">{SETSTYLE=none}{MENUAREA=4}</div>
             </div>
         </div>
     </div>
@@ -171,14 +166,7 @@ function register_css()
           
 function register_js()
 {
-    e107::js('theme', 'js/bootstrap.bundle.min.js', 'jquery');
  
-    
-    if(e107::pref('theme', 'offcanvas_navigation', false)) {
- 
-        
-    }
-    
      e107::js('theme', 'js/fix.js', 'jquery');  
 }
            

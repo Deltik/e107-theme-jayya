@@ -42,7 +42,7 @@ if (!isset($LOGIN_MENU_FORM)){
 	<br />\n
   {LM_IMAGECODE}
 	{LM_LOGINBUTTON}
-  {LM_REMEMBERME}
+    {LM_REMEMBERME}
 	<br />
 	{LM_SIGNUP_LINK}
 	{LM_FPW_LINK}
