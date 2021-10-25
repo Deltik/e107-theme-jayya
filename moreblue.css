@@ -10268,11 +10268,22 @@ div.bbcode {
 /* custom styles for this skin */
 /* put here all rules checked from original css file if they are too difficult to use in jayya folder */
 /* core */
-.left_menu, .right_menu {
+.left_menu {
   vertical-align: top;
   background-image: url(images/moreblue/s_body.png);
   background-repeat: repeat-y;
   background-color: #f0f1f2;
+  background: -webkit-gradient(linear, left top, right top, from(#fafbfd), color-stop(40%, #f7f9fc), to(#e8eef7));
+  background: linear-gradient(90deg, #fafbfd 0%, #f7f9fc 40%, #e8eef7 100%);
+}
+
+.right_menu {
+  vertical-align: top;
+  background-image: url(images/moreblue/s_body.png);
+  background-repeat: repeat-y;
+  background-color: #f0f1f2;
+  background: -webkit-gradient(linear, left top, right top, from(#e8eef7), color-stop(60%, #f7f9fc), to(#fafbfd));
+  background: linear-gradient(90deg, #e8eef7 0%, #f7f9fc 60%, #fafbfd 100%);
 }
 
 .menuBar {
@@ -10299,4 +10310,3 @@ div.bbcode {
 .accordion-item:not(:first-of-type) {
   border-top: 1px solid #878787;
 }
-/*# sourceMappingURL=moreblue.css.map */
