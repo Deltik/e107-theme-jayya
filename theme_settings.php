@@ -100,8 +100,8 @@ class theme_settings
             /* 1.st level li */ 
             $link_settings['main']['linkstart'] = '<li class="nav-item">';
             $link_settings['main']['linkstart_hilite'] = '<li id="menu_current"  class="nav-item active">';  //because bg hover otherwise a active is enough
-            $link_settings['main']['linkstart_sub'] = '<li class="nav-item dropdown menu">';
-            $link_settings['main']['linkstart_sub_hilite'] = '<li  class="nav-item dropdown active menu">';
+            $link_settings['main']['linkstart_sub'] = '<li class="nav-item dropdown">';
+            $link_settings['main']['linkstart_sub_hilite'] = '<li  class="nav-item dropdown active">';
             $link_settings['main']['linkcaret'] = '';
             $link_settings['main']['linkend'] = "</li>";
             $link_settings['main']['dropdown_on'] = ' data-bs-toggle="dropdown" ';  //alternative hover 
@@ -110,9 +110,9 @@ class theme_settings
             
             /* 1.st level a */
             $link_settings['main']['linkclass'] = 'nav-link menuButton'; 
-	        $link_settings['main']['linkclass_hilite'] = 'nav-link active menuButton';
+	        $link_settings['main']['linkclass_hilite'] = 'nav-link active menuButton menuButtonActive';
             $link_settings['main']['linkclass_sub'] = 'nav-link dropdown-toggle menuButton'; 
-            $link_settings['main']['linkclass_sub_hilite'] = 'nav-link dropdown-toggle active menuButton';
+            $link_settings['main']['linkclass_sub_hilite'] = 'nav-link dropdown-toggle active menuButton menuButtonActive';
             
             if(e107::pref('theme', 'display_menuButton_icon', false)) {  
                  $icon_path = e107::pref('theme', 'menuButton_icon', "");
@@ -135,16 +135,16 @@ class theme_settings
             $link_settings['main_sub']['prelink'] = '<ul class="dropdown-menu menu">';
             $link_settings['main_sub']['postlink'] = '</ul>';
             
-            $link_settings['main_sub']['linkstart'] = '<li class="menuItem linkstart link-depth-{NAV_LINK_DEPTH}">';
-            $link_settings['main_sub']['linkstart_hilite'] = '<li class="menuItem  linkstart active link-depth-{NAV_LINK_DEPTH}">';
-            $link_settings['main_sub']['linkstart_sub'] = '<li class="menuItem dropend lower">';
-            $link_settings['main_sub']['linkstart_sub_hilite'] = '<li class="menuItem active dropend lower">';
+            $link_settings['main_sub']['linkstart'] = '<li class=" linkstart link-depth-{NAV_LINK_DEPTH}">';
+            $link_settings['main_sub']['linkstart_hilite'] = '<li class="  linkstart active link-depth-{NAV_LINK_DEPTH}">';
+            $link_settings['main_sub']['linkstart_sub'] = '<li class=" dropend lower">';
+            $link_settings['main_sub']['linkstart_sub_hilite'] = '<li class=" active dropend lower">';
             
             $link_settings['main_sub']['linkend'] = '';
             
-            $link_settings['main_sub']['linkclass'] = 'dropdown-item '; 
-	        $link_settings['main_sub']['linkclass_hilite'] = 'dropdown-item  active';
-            $link_settings['main_sub']['linkclass_sub'] = 'dropdown-item  dropdown-toggle'; 
+            $link_settings['main_sub']['linkclass'] = 'menuItem dropdown-item '; 
+	        $link_settings['main_sub']['linkclass_hilite'] = 'menuItem dropdown-item  active';
+            $link_settings['main_sub']['linkclass_sub'] = 'menuItem dropdown-item  dropdown-toggle'; 
             $link_settings['main_sub']['linkclass_sub_hilite'] = 'dropdown-item  dropdown-toggle active';       
  
             $link_settings['main_sub_sub']['prelink'] = '<ul class="dropdown-menu">';

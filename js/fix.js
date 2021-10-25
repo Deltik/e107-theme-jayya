@@ -30,5 +30,13 @@ $(document).ready(function() {
        jQuery('.accordion-collapse').collapse()
     }
  
+
+	$("img.news_image").each(function(){
+        if ($(this).hasClass("img-responsive")) {
+        } else {
+            $(this).addClass("img-responsive");
+        }
+    });
+    
                 
 });
