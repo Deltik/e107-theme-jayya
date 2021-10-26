@@ -51,13 +51,17 @@ $accordion-icon-width: 12px!default;
 @import "bootstrap/carousel";
 @import "bootstrap/spinners"; */
 /* just parts of BT */
+/* Lists */
+ul, ol {
+  list-style: none;
+}
+
 .page_container {
   width: 100%;
 }
 
 .top_section, .main_section {
   width: 100%;
-  background-color: #fff;
 }
 
 .top_section_left {
@@ -135,6 +139,11 @@ $accordion-icon-width: 12px!default;
 
 /* fixed issue BT grid gutter */
 /* colors in custom */
+.navbar {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
 .menu .menuItem a {
   cursor: default;
   display: block;
@@ -165,10 +174,10 @@ $accordion-icon-width: 12px!default;
 }
 
 /* fixed issue BT grid gutter */
-/* default 5px 
-   canvas 5px 7px
+.left_menu, .right_menu {
+  vertical-align: top;
+}
 
-*/
 .menu_content {
   padding: 10px;
   background-color: #fff;
@@ -183,24 +192,39 @@ $accordion-icon-width: 12px!default;
 }
 
 /*
-.accordion-button {
-	color: #000;
-	@include font-size(var(--bs-body-font-size));
+.menu_content {
+	.list-group-item {
+		background-color: transparent; 
+		border: none;
+	}
+}
+*/
+.accordion-item {
+  background-color: transparent;
 }
 
 .accordion-button:not(.collapsed) {
-	color: #000;
-	@include font-size(var(--bs-body-font-size));
-	background-color: transparent;
-	box-shadow: none;
+  color: #000;
+  font-size: var(--bs-body-font-size);
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .accordion-button:focus {
-    z-index: 3;
-    border-color: none;  
-    outline: 0;
-    box-shadow: none;
-}*/
+  z-index: 3;
+  border-color: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.accordion-button {
+  color: #000;
+  font-size: var(--bs-body-font-size);
+  padding: 0;
+}
+
 ul.menu-list {
   padding-left: 0px;
 }
@@ -220,6 +244,11 @@ ul.menu-list {
 /* custom styles for this skin */
 /* put here all rules checked from original css file if they are too difficult to use in jayya folder */
 /* core */
+.top_section, .main_section {
+  background-color: #fff;
+  border-bottom: 1px solid #000;
+}
+
 .left_menu, .right_menu {
   vertical-align: top;
   background-color: #F9f7f7;
@@ -1543,8 +1572,4 @@ div.bbcode {
 }
 
 /* layout control via bbcodes */
-/* Consistency with Jayya v2.0 */
-.jayya_clock, .top_section_right #Clock {
-  display: none;
-}
 /*# sourceMappingURL=pepper.css.map */

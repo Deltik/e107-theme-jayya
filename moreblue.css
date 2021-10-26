@@ -21,13 +21,17 @@ $accordion-button-padding-y: 0px!default;
 $accordion-button-padding-x: 0px!default;
 $accordion-icon-width: 12px!default;
 */
+/* Lists */
+ul, ol {
+  list-style: none;
+}
+
 .page_container {
   width: 100%;
 }
 
 .top_section, .main_section {
   width: 100%;
-  background-color: #fff;
 }
 
 .top_section_left {
@@ -140,10 +144,10 @@ $accordion-icon-width: 12px!default;
 }
 
 /* fixed issue BT grid gutter */
-/* default 5px 
-   canvas 5px 7px
+.left_menu, .right_menu {
+  vertical-align: top;
+}
 
-*/
 .menu_content {
   padding: 10px;
   background-color: #fff;
@@ -155,6 +159,18 @@ $accordion-icon-width: 12px!default;
 
 .menu_content.buttons {
   padding: 0px;
+}
+
+/*
+.menu_content {
+	.list-group-item {
+		background-color: transparent; 
+		border: none;
+	}
+}
+*/
+.accordion-item {
+  background-color: transparent;
 }
 
 .accordion-button:not(.collapsed) {
@@ -255,7 +271,7 @@ div.emenuBar {
 .menu a.menuItem {
   cursor: default;
   display: block;
-  padding: 2px 11px 2px 0px;
+  padding: 2px 11px 2px 11px;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -296,10 +312,6 @@ a.visit:visited {
 
 a:hover, a.visit:hover {
   color: #000000;
-}
-
-img {
-  border: 0px;
 }
 
 .linkspage_button {
@@ -345,13 +357,13 @@ form {
   border-spacing: 0px;
 }
 
-.forumheader, .forumheader2, .forumheader3, .forumheader4, .fcaption, .finfobar {
+.forumheader, .forumheader2, .forumheader3, .forumheader4, .fcaption {
   padding: 4px;
   background-color: #fff;
   border: 1px solid #878787;
 }
 
-.forumheader, .forumheader4, .finfobar {
+.forumheader, .forumheader4 {
   background-color: #fbfbfd;
 }
 
@@ -441,202 +453,6 @@ td.link_button {
 
 b {
   color: #232930;
-}
-
-/*
-	QUICK TEMPORARY 0.8 FIX
-*/
-/* Forms */
-form {
-  display: inline;
-}
-
-fieldset {
-  border: 0;
-  margin-bottom: 10px;
-}
-
-input, select {
-  vertical-align: middle;
-}
-
-textarea {
-  overflow: auto;
-}
-
-/* Table */
-table {
-  border: 0;
-  border-spacing: 0;
-  empty-cells: show;
-  font-size: 100%;
-  width: 100%;
-}
-
-th {
-  vertical-align: top;
-  text-align: left;
-  font-weight: normal;
-}
-
-td {
-  vertical-align: top;
-}
-
-/* Lists */
-ul, ol {
-  list-style: none;
-}
-
-/*
- * e107 v0.800 - new class definitions
- */
-/* Core Formatting */
-.left {
-  text-align: left;
-}
-
-.right {
-  text-align: right;
-}
-
-.center {
-  text-align: center;
-}
-
-.f-left {
-  float: left;
-}
-
-.f-right {
-  float: right;
-}
-
-.top {
-  vertical-align: top;
-}
-
-.middle {
-  vertical-align: middle;
-}
-
-.bottom {
-  vertical-align: bottom;
-}
-
-.clear {
-  clear: both;
-}
-
-.clear-l {
-  clear: right;
-}
-
-.clear-r {
-  clear: left;
-}
-
-.smalltext {
-  font-size: 11px;
-}
-
-.nowrap {
-  white-space: nowrap;
-}
-
-/* Core Icons */
-img.icon {
-  border: 0px;
-}
-
-img.icon.list,
-input.action {
-  margin: 0px 3px;
-}
-
-img.icon.action,
-input.action {
-  vertical-align: middle;
-}
-
-img.S16 {
-  width: 16px;
-  height: 16px;
-}
-
-img.S32 {
-  width: 32px;
-  height: 32px;
-}
-
-img.S64 {
-  width: 64px;
-  height: 64px;
-}
-
-img.S128 {
-  width: 128px;
-  height: 128px;
-}
-
-/*******************************************************************************************************************/
-/******** Decorate JS */
-/* Admin List Table */
-.adminlist {
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-.adminlist th {
-  padding: 5px;
-  border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  font-weight: bold;
-}
-
-.adminlist td {
-  padding: 5px;
-  border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-}
-
-.adminlist th.last,
-.adminlist td.last {
-  border-right: 0px solid;
-}
-
-.adminlist tr.last td {
-  border-bottom: 0px solid;
-}
-
-.adminlist thead {
-  background-color: #f2f2f2;
-}
-
-.adminlist tr.even {
-  background-color: #f6f6f6;
-}
-
-.adminlist .col-selection-cont {
-  position: relative;
-  float: right;
-}
-
-.col-selection-cont .col-selection {
-  text-align: left;
-  background-color: #FCFDFF;
-  border: 1px outset black;
-  width: 200px;
-  margin-right: 0px;
-  overflow: visible;
-  position: absolute;
-  z-index: 101;
-  right: 0px;
-}
-
-.col-selection .col-selection-body {
-  padding: 5px;
-  clear: both;
 }
 
 /* BBcode textareas */
@@ -1393,10 +1209,17 @@ div.bbcode {
 /* custom styles for this skin */
 /* put here all rules checked from original css file if they are too difficult to use in jayya folder */
 /* core */
+.top_section, .main_section {
+  background-color: #fff;
+  border-bottom: 1px solid #878787;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #000;
+}
+
 .left_menu {
   vertical-align: top;
-  background-image: url(images/moreblue/s_body.png);
-  background-repeat: repeat-y;
   background-color: #f0f1f2;
   background: -webkit-gradient(linear, left top, right top, from(#fafbfd), color-stop(40%, #f7f9fc), to(#e8eef7));
   background: linear-gradient(90deg, #fafbfd 0%, #f7f9fc 40%, #e8eef7 100%);
@@ -1404,8 +1227,6 @@ div.bbcode {
 
 .right_menu {
   vertical-align: top;
-  background-image: url(images/moreblue/s_body.png);
-  background-repeat: repeat-y;
   background-color: #f0f1f2;
   background: -webkit-gradient(linear, left top, right top, from(#e8eef7), color-stop(60%, #f7f9fc), to(#fafbfd));
   background: linear-gradient(90deg, #e8eef7 0%, #f7f9fc 60%, #fafbfd 100%);
@@ -1434,5 +1255,10 @@ div.bbcode {
 
 .accordion-item:not(:first-of-type) {
   border-top: 1px solid #878787;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #000;
+  background-color: #d3def0;
 }
 /*# sourceMappingURL=moreblue.css.map */
