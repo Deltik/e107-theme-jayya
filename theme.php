@@ -56,7 +56,7 @@ $LAYOUT['_header_'] = '
         </div>
     </div>
     <div class="menuBar">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+      <nav class="navbar navbar-expand-lg navbar-light "> 
         <div class="container-fluid">
           {THEME_NAVIGATION}
         </div>

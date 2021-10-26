@@ -45,7 +45,7 @@ $NEWS_MENU_TEMPLATE['latest']['item']        = $lists_style['item_start'].
 $NEWS_MENU_TEMPLATE['archive']['start']       = $lists_style['start']; 
 $NEWS_MENU_TEMPLATE['archive']['end']         = $lists_style['end'];
 
-$NEWS_MENU_TEMPLATE['archive']['year_start']        = "<li class='list-group-item' >
+$NEWS_MENU_TEMPLATE['archive']['year_start']        = "<li>
 												<a class='e-expandit {EXPANDOPEN}' href='#{YEAR_ID}' style='display:block'>".$bullet." {YEAR_NAME}</a>
 												<ul id='{YEAR_ID}' class='menu-list pl-2 news-archive-menu-months' style='display:{YEAR_DISPLAY}'>
 												";
