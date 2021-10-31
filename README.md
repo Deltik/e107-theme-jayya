@@ -80,3 +80,7 @@ On 02 April 2018, Deltik started this repository to begin supporting Jayya again
 Finally, on 03 April 2018, Deltik merged Jayya MoreBlue into the last official update to Jayya as an alternative stylesheet, allowing one theme to serve both styles (in addition to the two original alternative stylesheets that Jayya officially had).
 
 Jayya's new home is this repository, and releases can be found on the [releases page](https://github.com/Deltik/e107-theme-jayya/releases).
+
+### Modernization
+
+On 16 October 2021, [Jimmi08](github.com/Jimmi08/) and Deltik teamed up to update Jayya to use the Bootstrap framework and modern web standards, including mobile device support and responsive design.

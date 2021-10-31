@@ -1,10 +1,27 @@
 <?php
 /*
-* Copyright (c) 2012 e107 Inc e107.org, Licensed under GNU GPL (http://www.gnu.org/licenses/gpl.txt)
-* $Id: e_shortcode.php 12438 2011-12-05 15:12:56Z secretr $
-*
-* Navigation Template 
-*/
+ * Copyright (C) 2011-2021 Deltik <https://www.deltik.net/>
+ * Copyright (C) 2008-2009 e107 Inc <https://e107.org/>
+ *
+ * Jayya MoreBlue images are from Debian MoreBlue Orbit GDM Theme
+ * version 1.0 (August 2008)
+ * Copyright (C) 2006-2008 Andre Luiz Rodrigues Ferreira
+ *
+ * This file is part of Jayya.
+ *
+ * Jayya is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Jayya is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Jayya.  If not, see <https://www.gnu.org/licenses/>.
+ */
 
 
 // TEMPLATE FOR {NAVIGATION=main}

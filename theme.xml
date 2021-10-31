@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2011-2021 Deltik <https://www.deltik.net/>
+  ~ Copyright (C) 2008-2009 e107 Inc <https://e107.org/>
+  ~
+  ~ Jayya MoreBlue images are from Debian MoreBlue Orbit GDM Theme
+  ~ version 1.0 (August 2008)
+  ~ Copyright (C) 2006-2008 Andre Luiz Rodrigues Ferreira
+  ~
+  ~ This file is part of Jayya.
+  ~
+  ~ Jayya is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ Jayya is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with Jayya.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
 <e107Theme name="Jayya" version="3.0.0" date="2021-10-31" compatibility="2.3.0">
-	<author name ="Deltik" url="https://www.deltik.org" />
-	<summary lan="">Classic e107 theme now maintained by Deltik</summary>
-	<description lan="">Classic e107 theme now maintained by Deltik</description>
+	<author name ="Deltik" url="https://www.deltik.net" />
+	<summary lan="">Classic e107 theme now maintained by Deltik and Jimmi08</summary>
+	<description lan="">Classic e107 theme now maintained by Deltik and Jimmi08</description>
 	<keywords>
 		<word>old</word>
 		<word>classic</word>

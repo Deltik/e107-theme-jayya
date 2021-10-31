@@ -1,17 +1,26 @@
 <?php
 /*
- * e107 website system
+ * Copyright (C) 2011-2021 Deltik <https://www.deltik.net/>
+ * Copyright (C) 2008-2009 e107 Inc <https://e107.org/>
  *
- * Copyright (C) 2008-2009 e107 Inc (e107.org)
- * Released under the terms and conditions of the
- * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
+ * Jayya MoreBlue images are from Debian MoreBlue Orbit GDM Theme
+ * version 1.0 (August 2008)
+ * Copyright (C) 2006-2008 Andre Luiz Rodrigues Ferreira
  *
+ * This file is part of Jayya.
  *
+ * Jayya is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * $Source: /cvs_backup/e107_0.8/e107_themes/jayya/languages/English.php,v $
- * $Revision$
- * $Date$
- * $Author$
+ * Jayya is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Jayya.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 define("LAN_THEME_1", "Comments are turned off for this item");
