@@ -8,10 +8,11 @@
 
 if (!defined('e107_INIT'))  exit;
 
-$lists_style = array();
-if(class_exists('theme_settings')) {
-  $lists_style = theme_settings::get_lists_style(); 
-}
+
+$lists_style['start'] = '<ul class="menu-list">';
+$lists_style['item_start'] = '<li>';
+$lists_style['item_end'] = '</li>';
+$lists_style['end'] = '</ul>';
 
 //$bullet = "<img src='".THEME_ABS."images/bullet2.gif' alt='bullet' class='icon' />";
 $bullet = '';

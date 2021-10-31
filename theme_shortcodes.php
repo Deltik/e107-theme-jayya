@@ -48,13 +48,13 @@ class theme_shortcodes extends e_shortcode
     
     public function dropdown_navigation() {
  
-      $html = '
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+      $html = '  
+          <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <div class="d-block d-sm-none">{SETSTYLE=topright}{MENUAREA=4}</div>
           <div class="collapse navbar-collapse" id="navbarMainNavigation">
-            {NAVIGATION}
-           <div class="m-2 d-block d-sm-none">{SEARCH}</div>
+            {NAVIGATION} 
           </div>
       ';
       return $html;
@@ -67,15 +67,14 @@ class theme_shortcodes extends e_shortcode
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" aria-label="Toggle navigation" data-bs-target="#navbarMainNavigation" aria-controls="navbarMainNavigation">
           <span class="navbar-toggler-icon"></span>
       </button>
-      
+	  <div class="m-2 d-block d-sm-none">{SETSTYLE=none}{MENUAREA=4}</div>
       <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarMainNavigation" aria-labelledby="navbarMainNavigationLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="navbarMainNavigationLabel">{SITENAME}</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          {NAVIGATION}
-          <div class="m-2 d-block d-sm-none">{SEARCH}</div>
+          {NAVIGATION} 
         </div>
       </div> ';
     

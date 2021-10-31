@@ -1,6 +1,5 @@
-
 @media (min-width: 992px) { 
-    .dropdown:hover .dropdown-menu  {
+    #menuBar  .nav-main .dropdown:hover .dropdown-menu  {
         display: block;
         margin-top: 0px;
     }
@@ -8,9 +7,18 @@
 
 
 @media (max-width: 991.98px) { 
-    .dropdown:hover .dropdown-menu.show {
+    #menuBar .nav-main .dropdown:hover .dropdown-menu.show {
         display: block;
         margin-top: 0px;
     }
+    
+    .xurl-social-icons  {
+    	display: inline;
+    	vertical-align: middle!important;
+    	margin-top: initial;
+    }
  }
-
+ 
+img.icon {
+ max-width: 16px;
+} 

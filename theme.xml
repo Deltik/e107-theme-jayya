@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Theme name="Jayya3" version="3.0.0" date="20201-10-16" compatibility="2.3.0">
+<e107Theme name="Jayya3" version="1.0.0" date="20201-10-31" compatibility="2.3.0">
 	<author name ="Deltik" url="https://www.deltik.org" />
 	<summary lan="">Classic e107 theme now maintained by Deltik</summary>
 	<description lan="">Classic e107 theme now maintained by Deltik</description>
@@ -18,10 +18,7 @@
         <library name="animate.css" scope="front" />
 	</libraries>    
 	<stylesheets>
-		<css file="style.css"  name="Default" />
-		<css file="moreblue.css" name="Inspired by Debian MoreBlue Orbit" />
-		<css file="canvas.css"   name="Classic Jayya alternative stylesheet" />
-		<css file="pepper.css"   name="Classic Jayya alternative stylesheet" />
+		<css file="style.css"  name="MoreBlue" />
 	</stylesheets>
  	<layouts>
 		<layout name='3_column' title='3 Columns' default='true' />

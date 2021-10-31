@@ -18,28 +18,14 @@ if(!defined('e107_INIT'))
 {
 	exit();
 }
- 
-$sitetheme = deftrue('USERTHEME', e107::getPref('sitetheme')); 
-e107::getSingleton('theme_settings', e_THEME.$sitetheme."/theme_settings.php");
- 
+
 ////// Multilanguages/ /////////////////////////////////////////////////////////
 e107::lan('theme');
-
-////////////////////////////////////////////////////////////////////////////////
-define("THEME_LEGACY",false); //warning it is ignored somewhere
-//define("THEME_DISCLAIMER", "Copyright &copy; xxx by <a href='xxx'>xxx</a>. All rights reserved.");
-define("THEME_DISCLAIMER", " ");
-define("STANDARDS_MODE", TRUE);
-////// Your own css fixes ////////////////////////////////////////////////////
-//define("CORE_CSS", false);  //copy core e107.css to theme and remove problematic rules 
  
 /*************** LAYOUTS ******************************************************/
 $layout = '_default'; 
  
 /*************** HEADERS AND FOOTERS  *****************************************/
-/* way how to change shortcodes on fly, it is not needed here, so just array()*/ 
-$elements = array();
- 
 $LAYOUT['_header_'] = '
 <div class="main page_container">  
     <div class="container-fluid top_section">
@@ -50,8 +36,8 @@ $LAYOUT['_header_'] = '
             <div class="col-md-8 top_section_mid">
                 {SETSTYLE=none}{MENUAREA=3}
             </div>
-            <div class="col-md-2 p-2 top_section_right d-none d-sm-block">
-                <div class="my-2">{SETSTYLE=none}{MENUAREA=4}</div>
+            <div class="col-md-2 p-2 top_section_right d-none d-sm-block ">
+                 {SETSTYLE=topright}{MENUAREA=4} 
             </div>
         </div>
     </div>
@@ -65,10 +51,9 @@ $LAYOUT['_header_'] = '
  ';
          
 $LAYOUT['_footer_'] = '
-<div class="container-fluid" style="text-align:center">
-  <br />
-  {SITEDISCLAIMER}{SETSTYLE=none} 
-  <br /><br />
+<div class="container-fluid text-center small">
+   {NAVIGATION: type=main&layout=footer} 
+   {SITEDISCLAIMER}{SETSTYLE=none} <br /><br />
   </div>
 </div>';
 
@@ -76,9 +61,7 @@ $LAYOUT['_footer_'] = '
 
  
 ///////////////////////DEFAULT 3 COLUMN LAYOUT ////////////////////////////////
-/* Note: use SETSTYLE for sidebars in settings class */ 
-/* Note: THEME_LAYOUT is not available */
-
+/* Note: THEME_LAYOUT is/will not be available */
 $LAYOUT['3_column'] =  '
     <div class="container-fluid main_section">
       <div class="row">
@@ -167,7 +150,7 @@ function register_css()
 function register_js()
 {
  
-     e107::js('theme', 'js/fix.js', 'jquery');  
+   e107::js('theme', 'js/fix.js', 'jquery');  
 }
            
 function register_fonts()
@@ -318,6 +301,10 @@ function tablestyle($caption, $text, $mode, $options = array())
             case 'none':
                 echo $text;
             break;
+            
+            case 'topright':
+                echo "<div class='col m-auto'>".$text."</div>";
+            break;    
             
             case "leftmenu":
             case "rightmenu":
