@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Fixed
 
 * Core signup template for Bootstrap 5
+* Core login template for Bootstrap 5
 
 ## v2.2.4 (2020-02-24)
 
