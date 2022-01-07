@@ -1,0 +1,28 @@
+  
+    <div class="container-fluid main_section">
+      <div class="row">
+        <div class="col-md-2 left_menu">
+            <div class="accordion" id="left-menu"> 
+            {SETSTYLE=leftmenu}
+            {MENU=1}
+            </div>
+        </div>
+        <div class="col-md-8 default_menu">
+            {ALERTS}
+            {SETSTYLE=default}
+            {FEATUREBOX|default}
+            {FEATUREBOX|dynamic}
+            {WMESSAGE}
+            {---}
+            <br />
+            {FEATUREBOX|tabs=notablestyle}
+        </div>
+        <div class="col-md-2 right_menu">
+            <div class="accordion" id="right-menu"> 
+            {SETSTYLE=rightmenu}
+            {MENU=2}
+            </div>
+        </div>
+      </div>  
+    </div>
+ 

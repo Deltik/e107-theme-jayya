@@ -23,7 +23,7 @@
   ~ along with Jayya.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<e107Theme name="Jayya" version="3.0.0" date="2021-10-31" compatibility="2.3.0">
+<e107Theme name="Jayya" version="3.1.0" date="2022-01-07" compatibility="2.3.1">
 	<author name ="Deltik" url="https://www.deltik.net" />
 	<summary lan="">Classic e107 theme now maintained by Deltik and Jimmi08</summary>
 	<description lan="">Classic e107 theme now maintained by Deltik and Jimmi08</description>
